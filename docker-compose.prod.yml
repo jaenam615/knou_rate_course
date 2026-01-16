@@ -1,0 +1,10 @@
+services:
+  api:
+    environment:
+      DEBUG: "false"
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:?JWT_SECRET_KEY is required}
+      DATABASE_URL: ${DATABASE_URL:?DATABASE_URL is required}
+    restart: always
+
+  db:
+    restart: always
