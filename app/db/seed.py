@@ -1,41 +1,31 @@
 """
 Seed script for initial data.
 Run with: python -m app.db.seed
+
+To scrape fresh data first: python -m scripts.scrape_knou
 """
 
 import asyncio
+import json
+import re
+from pathlib import Path
 
 from sqlalchemy import select
 
+from app.constants.course_constants import CourseStatus
 from app.db.database import AsyncSessionLocal, engine
-from app.models import Base, Major, Course, Tag, TagType, Review, ReviewTag
+from app.models import (
+    Base,
+    Major,
+    Course,
+    CourseOffering,
+    Tag,
+    TagType,
+    User,
+    Review,
+    ReviewTag,
+)
 
-
-# Sample majors (KNOU departments)
-MAJORS = [
-    "국어국문학과",
-    "영어영문학과",
-    "중어중문학과",
-    "프랑스언어문화학과",
-    "일본학과",
-    "법학과",
-    "행정학과",
-    "경제학과",
-    "경영학과",
-    "무역학과",
-    "미디어영상학과",
-    "관광학과",
-    "농학과",
-    "가정학과",
-    "컴퓨터과학과",
-    "정보통계학과",
-    "환경보건학과",
-    "간호학과",
-    "유아교육과",
-    "문화교양학과",
-    "청소년교육과",
-    "생활체육지도학과",
-]
 
 # Fixed tags (EVAL_METHOD)
 EVAL_TAGS = [
@@ -59,44 +49,86 @@ FREEFORM_TAGS = [
     "강의재밌음",
 ]
 
-# Sample courses for 컴퓨터과학과
-CS_COURSES = [
-    ("CS101", "컴퓨터과학개론", 3),
-    ("CS102", "이산수학", 3),
-    ("CS201", "자료구조", 3),
-    ("CS202", "알고리즘", 3),
-    ("CS203", "컴퓨터구조", 3),
-    ("CS204", "운영체제", 3),
-    ("CS301", "데이터베이스", 3),
-    ("CS302", "컴퓨터네트워크", 3),
-    ("CS303", "소프트웨어공학", 3),
-    ("CS304", "프로그래밍언어론", 3),
-    ("CS401", "인공지능", 3),
-    ("CS402", "머신러닝", 3),
-]
+# Department (college) mapping for majors
+MAJOR_DEPARTMENTS = {
+    # 인문과학대학 (College of Liberal Arts)
+    "국어국문학과": "인문과학대학",
+    "영어영문학과": "인문과학대학",
+    "중어중문학과": "인문과학대학",
+    "프랑스언어문화학과": "인문과학대학",
+    "일본학과": "인문과학대학",
+    # 사회과학대학 (College of Social Sciences)
+    "법학과": "사회과학대학",
+    "행정학과": "사회과학대학",
+    "경제학과": "사회과학대학",
+    "경영학과": "사회과학대학",
+    "무역학과": "사회과학대학",
+    "미디어영상학과": "사회과학대학",
+    "관광학과": "사회과학대학",
+    "사회복지학과": "사회과학대학",
+    # 자연과학대학 (College of Natural Sciences)
+    "농학과": "자연과학대학",
+    "생활과학부": "자연과학대학",
+    "컴퓨터과학과": "자연과학대학",
+    "통계데이터과학과": "자연과학대학",
+    "보건환경안전학과": "자연과학대학",
+    "간호학과": "자연과학대학",
+    # 교육과학대학 (College of Education)
+    "교육학과": "교육과학대학",
+    "청소년교육과": "교육과학대학",
+    "유아교육과": "교육과학대학",
+    "문화교양학과": "교육과학대학",
+    "생활체육지도과": "교육과학대학",
+}
 
-# Sample courses for 경영학과
-BIZ_COURSES = [
-    ("BIZ101", "경영학원론", 3),
-    ("BIZ102", "회계원리", 3),
-    ("BIZ201", "마케팅원론", 3),
-    ("BIZ202", "재무관리", 3),
-    ("BIZ203", "인적자원관리", 3),
-    ("BIZ301", "경영전략", 3),
-    ("BIZ302", "소비자행동론", 3),
-]
 
-# Sample courses for 행정학과
-PA_COURSES = [
-    ("PA101", "행정학개론", 3),
-    ("PA102", "정책학개론", 3),
-    ("PA201", "조직론", 3),
-    ("PA202", "인사행정론", 3),
-    ("PA301", "지방자치론", 3),
-]
+def slugify(name: str) -> str:
+    """Convert Korean major name to URL-friendly slug."""
+    # Simple mapping for common names
+    slug_map = {
+        "국어국문학과": "korean",
+        "영어영문학과": "english",
+        "중어중문학과": "chinese",
+        "프랑스언어문화학과": "french",
+        "일본학과": "japanese",
+        "법학과": "law",
+        "행정학과": "public-admin",
+        "경제학과": "economics",
+        "경영학과": "business",
+        "무역학과": "trade",
+        "미디어영상학과": "media",
+        "관광학과": "tourism",
+        "사회복지학과": "social-welfare",
+        "농학과": "agriculture",
+        "생활과학부": "life-science",
+        "컴퓨터과학과": "computer-science",
+        "통계데이터과학과": "statistics",
+        "보건환경안전학과": "health-environment",
+        "간호학과": "nursing",
+        "교육학과": "education",
+        "청소년교육과": "youth-education",
+        "유아교육과": "early-childhood",
+        "문화교양학과": "liberal-arts",
+        "생활체육지도과": "sports",
+    }
+    return slug_map.get(name, re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-"))
+
+
+def load_scraped_data() -> dict:
+    """Load scraped course data from JSON file."""
+    data_path = Path(__file__).parent.parent.parent / "data" / "knou_courses.json"
+
+    if not data_path.exists():
+        print(f"Warning: Scraped data not found at {data_path}")
+        print("Run 'python -m scripts.scrape_knou' to scrape data first.")
+        return {"majors": [], "courses": []}
+
+    with open(data_path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 
 async def seed_database():
+    """Seed the database with scraped KNOU data."""
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
 
@@ -107,14 +139,36 @@ async def seed_database():
             print("Database already seeded. Skipping...")
             return
 
-        # Seed majors
+        # Load scraped data
+        data = load_scraped_data()
+        majors_list = data.get("majors", [])
+        courses_list = data.get("courses", [])
+
+        if not majors_list:
+            print("No majors found in scraped data.")
+            return
+
+        # Seed majors with new fields
         majors = {}
-        for name in MAJORS:
-            major = Major(name=name)
+        for major_data in majors_list:
+            # Handle both old format (string) and new format (dict)
+            if isinstance(major_data, str):
+                name = major_data
+                department = MAJOR_DEPARTMENTS.get(name, "기타")
+            else:
+                name = major_data["name"]
+                department = major_data.get("department", MAJOR_DEPARTMENTS.get(name, "기타"))
+
+            major = Major(
+                name=name,
+                department=department,
+                slug=slugify(name),
+                is_active=True,
+            )
             db.add(major)
             majors[name] = major
         await db.flush()
-        print(f"Added {len(MAJORS)} majors")
+        print(f"Added {len(majors_list)} majors")
 
         # Seed tags
         tags = {}
@@ -129,95 +183,120 @@ async def seed_database():
         await db.flush()
         print(f"Added {len(EVAL_TAGS) + len(FREEFORM_TAGS)} tags")
 
-        # Seed courses
-        cs_major = majors["컴퓨터과학과"]
-        for code, name, credits in CS_COURSES:
-            course = Course(
-                major_id=cs_major.id,
-                course_code=code,
-                name=name,
-                credits=credits,
-            )
-            db.add(course)
+        # Seed courses from scraped data
+        course_count = 0
+        offering_count = 0
+        seen_course_codes = set()
 
-        biz_major = majors["경영학과"]
-        for code, name, credits in BIZ_COURSES:
-            course = Course(
-                major_id=biz_major.id,
-                course_code=code,
-                name=name,
-                credits=credits,
-            )
-            db.add(course)
+        for course_data in courses_list:
+            course_code = course_data["course_code"]
+            major_name = course_data["major"]
 
-        pa_major = majors["행정학과"]
-        for code, name, credits in PA_COURSES:
+            # Skip duplicates (same course may appear in multiple majors as 교양)
+            if course_code in seen_course_codes:
+                continue
+            seen_course_codes.add(course_code)
+
+            # Skip if major not found (e.g., courses from departments with 0 results)
+            if major_name not in majors:
+                continue
+
+            major = majors[major_name]
+
             course = Course(
-                major_id=pa_major.id,
-                course_code=code,
-                name=name,
-                credits=credits,
+                major_id=major.id,
+                course_code=course_code,
+                name=course_data["name"],
+                credits=course_data.get("credits", 3),
             )
             db.add(course)
+            course_count += 1
+
+            # Create course offering with new schema
+            await db.flush()  # Need course.id
+            offering = CourseOffering(
+                course_id=course.id,
+                semester=course_data.get("semester", 1),
+                grade_target=course_data.get("grade", 1),
+                status=CourseStatus.ACTIVE,
+            )
+            db.add(offering)
+            offering_count += 1
 
         await db.flush()
-        print(f"Added {len(CS_COURSES) + len(BIZ_COURSES) + len(PA_COURSES)} courses")
+        print(f"Added {course_count} courses")
+        print(f"Added {offering_count} course offerings")
 
-        # Add sample reviews
-        cs_intro_result = await db.execute(
-            select(Course).where(Course.course_code == "CS101")
+        # Create a test user for sample reviews
+        test_user = User(
+            email="test@knou.ac.kr",
+            password_hash="$2b$12$test_hash_not_for_login",  # Not a real password
+            is_verified=True,
         )
-        cs_intro = cs_intro_result.scalar_one()
-
-        sample_reviews = [
-            Review(
-                course_id=cs_intro.id,
-                year=2024,
-                semester=1,
-                rating_overall=5,
-                difficulty=2,
-                workload=2,
-                text="컴퓨터과학 입문으로 최고! 기초부터 차근차근 설명해주셔서 비전공자도 이해하기 쉬웠어요. 과제도 적당하고 시험도 기출 위주라 공부하기 좋았습니다.",
-            ),
-            Review(
-                course_id=cs_intro.id,
-                year=2024,
-                semester=2,
-                rating_overall=4,
-                difficulty=3,
-                workload=3,
-                text="전반적으로 괜찮은 과목입니다. 프로그래밍 기초가 없으면 좀 어려울 수 있어요. 그래도 강의 자료가 잘 되어있어서 독학 가능합니다.",
-            ),
-            Review(
-                course_id=cs_intro.id,
-                year=2025,
-                semester=1,
-                rating_overall=5,
-                difficulty=2,
-                workload=2,
-                text="꿀과목 인정! 교수님 설명도 좋고 시험도 어렵지 않아요. 컴과 입문으로 강추합니다.",
-            ),
-        ]
-
-        for review in sample_reviews:
-            db.add(review)
+        db.add(test_user)
         await db.flush()
 
-        # Add tags to reviews
-        tag_기출많음 = tags["기출많음"]
-        tag_점수잘줌 = tags["점수잘줌"]
-        tag_기말시험 = tags["기말시험"]
+        # Add sample reviews for demonstration
+        cs_courses_result = await db.execute(
+            select(Course).join(Major).where(Major.name == "컴퓨터과학과").limit(3)
+        )
+        cs_courses = cs_courses_result.scalars().all()
 
-        db.add(ReviewTag(review_id=sample_reviews[0].id, tag_id=tag_기출많음.id))
-        db.add(ReviewTag(review_id=sample_reviews[0].id, tag_id=tag_점수잘줌.id))
-        db.add(ReviewTag(review_id=sample_reviews[0].id, tag_id=tag_기말시험.id))
-        db.add(ReviewTag(review_id=sample_reviews[2].id, tag_id=tag_기출많음.id))
-        db.add(ReviewTag(review_id=sample_reviews[2].id, tag_id=tag_기말시험.id))
+        if cs_courses:
+            sample_texts = [
+                "좋은 강의입니다. 기초부터 차근차근 설명해주셔서 이해하기 쉬웠어요. 과제도 적당하고 시험도 기출 위주라 공부하기 좋았습니다.",
+                "프로그래밍 실습 위주라 실력이 많이 늘었습니다. 처음에는 어려웠지만 꾸준히 하니까 따라갈 수 있었어요.",
+                "온라인 강의 자료가 잘 되어있어요. 반복해서 볼 수 있어서 좋고, 교수님 설명도 친절합니다.",
+            ]
+            sample_reviews = []
+            for i, course in enumerate(cs_courses):
+                review = Review(
+                    course_id=course.id,
+                    user_id=test_user.id,
+                    rating_overall=4 + (i % 2),
+                    difficulty=2 + (i % 3),
+                    workload=2 + (i % 3),
+                    text=sample_texts[i],
+                )
+                db.add(review)
+                sample_reviews.append(review)
+
+            await db.flush()
+
+            # Add tags to first sample review
+            tag_기출많음 = tags["기출많음"]
+            tag_점수잘줌 = tags["점수잘줌"]
+            tag_기말시험 = tags["기말시험"]
+
+            if sample_reviews:
+                db.add(
+                    ReviewTag(review_id=sample_reviews[0].id, tag_id=tag_기출많음.id)
+                )
+                db.add(
+                    ReviewTag(review_id=sample_reviews[0].id, tag_id=tag_점수잘줌.id)
+                )
+                db.add(
+                    ReviewTag(review_id=sample_reviews[0].id, tag_id=tag_기말시험.id)
+                )
+
+            print(f"Added {len(sample_reviews)} sample reviews with tags")
 
         await db.commit()
-        print("Added sample reviews with tags")
         print("Seeding complete!")
 
 
+async def clear_database():
+    """Clear all data from the database (for development)."""
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.drop_all)
+        await conn.run_sync(Base.metadata.create_all)
+    print("Database cleared and recreated.")
+
+
 if __name__ == "__main__":
-    asyncio.run(seed_database())
+    import sys
+
+    if len(sys.argv) > 1 and sys.argv[1] == "--clear":
+        asyncio.run(clear_database())
+    else:
+        asyncio.run(seed_database())

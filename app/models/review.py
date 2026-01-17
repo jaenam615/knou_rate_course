@@ -1,9 +1,15 @@
 from datetime import datetime
+from typing import TYPE_CHECKING
 
-from sqlalchemy import Boolean, ForeignKey, SmallInteger, String, Text, DateTime
+from sqlalchemy import Boolean, DateTime, ForeignKey, SmallInteger, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.models.base import Base
+
+if TYPE_CHECKING:
+    from app.models.course import Course
+    from app.models.tag import Tag
+    from app.models.user import User
 
 
 class Review(Base):
@@ -12,8 +18,6 @@ class Review(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     course_id: Mapped[int] = mapped_column(ForeignKey("courses.id"), nullable=False)
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False)
-    year: Mapped[int] = mapped_column(SmallInteger, nullable=False)
-    semester: Mapped[int] = mapped_column(SmallInteger, nullable=False)
     rating_overall: Mapped[int] = mapped_column(SmallInteger, nullable=False)  # 1-5
     difficulty: Mapped[int] = mapped_column(SmallInteger, nullable=False)  # 1-5
     workload: Mapped[int] = mapped_column(SmallInteger, nullable=False)  # 1-5
@@ -37,8 +41,3 @@ class ReviewTag(Base):
 
     review: Mapped["Review"] = relationship(back_populates="tags")
     tag: Mapped["Tag"] = relationship()
-
-
-from app.models.course import Course
-from app.models.tag import Tag
-from app.models.user import User

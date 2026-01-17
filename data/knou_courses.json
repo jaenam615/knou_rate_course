@@ -1,0 +1,4686 @@
+{
+  "majors": [
+    {
+      "name": "국어국문학과",
+      "department": "인문과학대학"
+    },
+    {
+      "name": "영어영문학과",
+      "department": "인문과학대학"
+    },
+    {
+      "name": "중어중문학과",
+      "department": "인문과학대학"
+    },
+    {
+      "name": "프랑스언어문화학과",
+      "department": "인문과학대학"
+    },
+    {
+      "name": "일본학과",
+      "department": "인문과학대학"
+    },
+    {
+      "name": "법학과",
+      "department": "사회과학대학"
+    },
+    {
+      "name": "행정학과",
+      "department": "사회과학대학"
+    },
+    {
+      "name": "경제학과",
+      "department": "사회과학대학"
+    },
+    {
+      "name": "경영학과",
+      "department": "사회과학대학"
+    },
+    {
+      "name": "무역학과",
+      "department": "사회과학대학"
+    },
+    {
+      "name": "미디어영상학과",
+      "department": "사회과학대학"
+    },
+    {
+      "name": "관광학과",
+      "department": "사회과학대학"
+    },
+    {
+      "name": "사회복지학과",
+      "department": "사회과학대학"
+    },
+    {
+      "name": "농학과",
+      "department": "자연과학대학"
+    },
+    {
+      "name": "생활과학부",
+      "department": "자연과학대학"
+    },
+    {
+      "name": "컴퓨터과학과",
+      "department": "자연과학대학"
+    },
+    {
+      "name": "통계데이터과학과",
+      "department": "자연과학대학"
+    },
+    {
+      "name": "보건환경안전학과",
+      "department": "자연과학대학"
+    },
+    {
+      "name": "간호학과",
+      "department": "자연과학대학"
+    },
+    {
+      "name": "교육학과",
+      "department": "교육과학대학"
+    },
+    {
+      "name": "청소년교육과",
+      "department": "교육과학대학"
+    },
+    {
+      "name": "유아교육과",
+      "department": "교육과학대학"
+    },
+    {
+      "name": "문화교양학과",
+      "department": "교육과학대학"
+    },
+    {
+      "name": "생활체육지도과",
+      "department": "교육과학대학"
+    }
+  ],
+  "courses": [
+    {
+      "course_code": "10157",
+      "name": "우리어문학과한자·한문",
+      "major": "국어국문학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "10152",
+      "name": "글과생각",
+      "major": "국어국문학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "10155",
+      "name": "현대소설의이해와감상",
+      "major": "국어국문학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00174",
+      "name": "글쓰기",
+      "major": "국어국문학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00103",
+      "name": "세계의역사",
+      "major": "국어국문학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "12154",
+      "name": "중국문화산책",
+      "major": "국어국문학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "10252",
+      "name": "언어와생활",
+      "major": "국어국문학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00202",
+      "name": "테마가있는음악여행",
+      "major": "국어국문학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "10257",
+      "name": "현대시의이해와감상",
+      "major": "국어국문학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00371",
+      "name": "동서양고전의이해",
+      "major": "국어국문학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00207",
+      "name": "한국사의이해",
+      "major": "국어국문학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "10308",
+      "name": "국문학의역사",
+      "major": "국어국문학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "10354",
+      "name": "옛수필의세계",
+      "major": "국어국문학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "10310",
+      "name": "우리말의구조",
+      "major": "국어국문학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "10353",
+      "name": "소설창작론",
+      "major": "국어국문학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "10416",
+      "name": "고전시가론",
+      "major": "국어국문학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "10420",
+      "name": "문학비평론",
+      "major": "국어국문학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "43313",
+      "name": "신화의세계",
+      "major": "국어국문학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "37351",
+      "name": "생활과건강",
+      "major": "국어국문학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "10421",
+      "name": "우리말의역사",
+      "major": "국어국문학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "10454",
+      "name": "한국영상문학론",
+      "major": "국어국문학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "10205",
+      "name": "소리와발음",
+      "major": "국어국문학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "10424",
+      "name": "시창작론",
+      "major": "국어국문학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "10418",
+      "name": "구비문학의세계",
+      "major": "국어국문학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "11205",
+      "name": "영어회화1",
+      "major": "영어영문학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00175",
+      "name": "인간과언어",
+      "major": "영어영문학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "11154",
+      "name": "멀티미디어영어",
+      "major": "영어영문학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00174",
+      "name": "글쓰기",
+      "major": "영어영문학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00160",
+      "name": "영문법의기초",
+      "major": "영어영문학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "43101",
+      "name": "영화로생각하기",
+      "major": "영어영문학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "11202",
+      "name": "영미산문",
+      "major": "영어영문학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00202",
+      "name": "테마가있는음악여행",
+      "major": "영어영문학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "11201",
+      "name": "영문법의활용",
+      "major": "영어영문학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00371",
+      "name": "동서양고전의이해",
+      "major": "영어영문학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00207",
+      "name": "한국사의이해",
+      "major": "영어영문학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "11566",
+      "name": "시사영어",
+      "major": "영어영문학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "11351",
+      "name": "영어학의이해",
+      "major": "영어영문학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "11371",
+      "name": "영어교수법",
+      "major": "영어영문학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "11415",
+      "name": "영어권국가의이해",
+      "major": "영어영문학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "11151",
+      "name": "테스트영어연습",
+      "major": "영어영문학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "11372",
+      "name": "영시읽기의기초",
+      "major": "영어영문학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "11373",
+      "name": "영미아동문학",
+      "major": "영어영문학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "43313",
+      "name": "신화의세계",
+      "major": "영어영문학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "11465",
+      "name": "영어문장구조의이해",
+      "major": "영어영문학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "11416",
+      "name": "미국문학의이해",
+      "major": "영어영문학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "11466",
+      "name": "영미희곡",
+      "major": "영어영문학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "11559",
+      "name": "영국소설",
+      "major": "영어영문학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37351",
+      "name": "생활과건강",
+      "major": "영어영문학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "12154",
+      "name": "중국문화산책",
+      "major": "중어중문학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "12153",
+      "name": "기초한자",
+      "major": "중어중문학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "12150",
+      "name": "중국어1",
+      "major": "중어중문학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00174",
+      "name": "글쓰기",
+      "major": "중어중문학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00175",
+      "name": "인간과언어",
+      "major": "중어중문학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "37351",
+      "name": "생활과건강",
+      "major": "중어중문학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "12257",
+      "name": "중국어구어실습",
+      "major": "중어중문학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00207",
+      "name": "한국사의이해",
+      "major": "중어중문학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "12152",
+      "name": "초급한문",
+      "major": "중어중문학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00371",
+      "name": "동서양고전의이해",
+      "major": "중어중문학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "12256",
+      "name": "중국어3",
+      "major": "중어중문학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "12259",
+      "name": "중국경제의이해",
+      "major": "중어중문학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "12316",
+      "name": "현대중국입문",
+      "major": "중어중문학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "12361",
+      "name": "중국어듣기연습",
+      "major": "중어중문학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "12360",
+      "name": "중국어5",
+      "major": "중어중문학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "12418",
+      "name": "중국명시감상",
+      "major": "중어중문학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "12526",
+      "name": "중국공연예술",
+      "major": "중어중문학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "43313",
+      "name": "신화의세계",
+      "major": "중어중문학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "10252",
+      "name": "언어와생활",
+      "major": "중어중문학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "12467",
+      "name": "이슈로보는중국경제",
+      "major": "중어중문학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00272",
+      "name": "세계의정치와경제",
+      "major": "중어중문학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "12451",
+      "name": "경서제자강독",
+      "major": "중어중문학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "12464",
+      "name": "중국문학의이해",
+      "major": "중어중문학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "12465",
+      "name": "중국어7",
+      "major": "중어중문학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "13165",
+      "name": "프랑스어기초어휘와발음",
+      "major": "프랑스언어문화학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "13163",
+      "name": "기초프랑스어회화1",
+      "major": "프랑스언어문화학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00231",
+      "name": "컴퓨터의이해",
+      "major": "프랑스언어문화학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00103",
+      "name": "세계의역사",
+      "major": "프랑스언어문화학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00174",
+      "name": "글쓰기",
+      "major": "프랑스언어문화학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "13164",
+      "name": "프랑스어기초문법",
+      "major": "프랑스언어문화학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00272",
+      "name": "세계의정치와경제",
+      "major": "프랑스언어문화학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "13201",
+      "name": "프랑스어문법1",
+      "major": "프랑스언어문화학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "13255",
+      "name": "프랑스어듣기와말하기A2",
+      "major": "프랑스언어문화학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "13307",
+      "name": "프랑스어회화1",
+      "major": "프랑스언어문화학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00371",
+      "name": "동서양고전의이해",
+      "major": "프랑스언어문화학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00202",
+      "name": "테마가있는음악여행",
+      "major": "프랑스언어문화학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "11415",
+      "name": "영어권국가의이해",
+      "major": "프랑스언어문화학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "13358",
+      "name": "파리박물관기행",
+      "major": "프랑스언어문화학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "13364",
+      "name": "문학으로본프랑스어권",
+      "major": "프랑스언어문화학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "13542",
+      "name": "영화로배우는프랑스어",
+      "major": "프랑스언어문화학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "13202",
+      "name": "프랑스산문",
+      "major": "프랑스언어문화학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "13301",
+      "name": "영상프랑스어",
+      "major": "프랑스언어문화학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "13353",
+      "name": "카뮈와위고선독",
+      "major": "프랑스언어문화학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "13416",
+      "name": "프랑스어번역연습",
+      "major": "프랑스언어문화학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "43201",
+      "name": "서구지성사입문",
+      "major": "프랑스언어문화학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "13527",
+      "name": "프랑스작품선",
+      "major": "프랑스언어문화학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "13468",
+      "name": "프랑스비평선독",
+      "major": "프랑스언어문화학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00203",
+      "name": "환경과건강",
+      "major": "프랑스언어문화학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "12153",
+      "name": "기초한자",
+      "major": "일본학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "00103",
+      "name": "세계의역사",
+      "major": "일본학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "14102",
+      "name": "일본학개론",
+      "major": "일본학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "14101",
+      "name": "일본어기초1",
+      "major": "일본학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00174",
+      "name": "글쓰기",
+      "major": "일본학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "27102",
+      "name": "한국지리여행",
+      "major": "일본학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "00272",
+      "name": "세계의정치와경제",
+      "major": "일본학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00207",
+      "name": "한국사의이해",
+      "major": "일본학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "14251",
+      "name": "일본어문장연습",
+      "major": "일본학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "14208",
+      "name": "일본근세근현대사",
+      "major": "일본학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "14205",
+      "name": "일본어활용1",
+      "major": "일본학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00371",
+      "name": "동서양고전의이해",
+      "major": "일본학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "10152",
+      "name": "글과생각",
+      "major": "일본학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "14312",
+      "name": "일본전통문화론",
+      "major": "일본학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "14313",
+      "name": "근현대일본정치사",
+      "major": "일본학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "14315",
+      "name": "일본의소설",
+      "major": "일본학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "14351",
+      "name": "중급일본어활용1",
+      "major": "일본학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "14317",
+      "name": "일본대중문화론",
+      "major": "일본학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "14431",
+      "name": "근대일본의모색:평화",
+      "major": "일본학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "14422",
+      "name": "고급일본어활용",
+      "major": "일본학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "14424",
+      "name": "근현대한일관계와국제사회",
+      "major": "일본학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "14427",
+      "name": "일본사회문화연습",
+      "major": "일본학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "14420",
+      "name": "일본명작기행",
+      "major": "일본학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37351",
+      "name": "생활과건강",
+      "major": "일본학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00103",
+      "name": "세계의역사",
+      "major": "법학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "21205",
+      "name": "형법총론",
+      "major": "법학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "21202",
+      "name": "헌법의기초",
+      "major": "법학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "21201",
+      "name": "민법총칙",
+      "major": "법학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00174",
+      "name": "글쓰기",
+      "major": "법학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00231",
+      "name": "컴퓨터의이해",
+      "major": "법학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00207",
+      "name": "한국사의이해",
+      "major": "법학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "21365",
+      "name": "노동법Ⅰ",
+      "major": "법학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "21354",
+      "name": "상법기초",
+      "major": "법학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "21152",
+      "name": "채권총론",
+      "major": "법학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00272",
+      "name": "세계의정치와경제",
+      "major": "법학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00203",
+      "name": "환경과건강",
+      "major": "법학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "21381",
+      "name": "헌법논증이론",
+      "major": "법학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "21309",
+      "name": "일반행정법",
+      "major": "법학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "21366",
+      "name": "국제인권법",
+      "major": "법학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "21367",
+      "name": "지적재산권법",
+      "major": "법학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "21560",
+      "name": "공정거래법",
+      "major": "법학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "21564",
+      "name": "법사상사",
+      "major": "법학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "21417",
+      "name": "형사소송법",
+      "major": "법학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "21453",
+      "name": "노동법Ⅲ",
+      "major": "법학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "21476",
+      "name": "부동산법제",
+      "major": "법학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "21569",
+      "name": "법과사회",
+      "major": "법학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "21477",
+      "name": "소송과강제집행",
+      "major": "법학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37351",
+      "name": "생활과건강",
+      "major": "법학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "22152",
+      "name": "사회복지학개론",
+      "major": "행정학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "22151",
+      "name": "정보사회와행정",
+      "major": "행정학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00174",
+      "name": "글쓰기",
+      "major": "행정학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00152",
+      "name": "행정학개론",
+      "major": "행정학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00103",
+      "name": "세계의역사",
+      "major": "행정학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00231",
+      "name": "컴퓨터의이해",
+      "major": "행정학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00207",
+      "name": "한국사의이해",
+      "major": "행정학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "22353",
+      "name": "행정통제와윤리",
+      "major": "행정학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "22203",
+      "name": "인적자원관리론",
+      "major": "행정학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "22205",
+      "name": "행정조사론",
+      "major": "행정학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00272",
+      "name": "세계의정치와경제",
+      "major": "행정학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00203",
+      "name": "환경과건강",
+      "major": "행정학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "21309",
+      "name": "일반행정법",
+      "major": "행정학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "22307",
+      "name": "비교행정론",
+      "major": "행정학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "22309",
+      "name": "행정계량분석",
+      "major": "행정학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "22350",
+      "name": "성과관리론",
+      "major": "행정학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "22412",
+      "name": "지방자치행정론",
+      "major": "행정학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "22456",
+      "name": "공기업론",
+      "major": "행정학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "22413",
+      "name": "지역개발론",
+      "major": "행정학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "22475",
+      "name": "재난관리론",
+      "major": "행정학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "22477",
+      "name": "다문화와이민행정",
+      "major": "행정학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00303",
+      "name": "숫자로이해하는기업과사회",
+      "major": "행정학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "22420",
+      "name": "협상조정론",
+      "major": "행정학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "22563",
+      "name": "사회복지행정론",
+      "major": "행정학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "23202",
+      "name": "기초미시경제론",
+      "major": "경제학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00231",
+      "name": "컴퓨터의이해",
+      "major": "경제학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00174",
+      "name": "글쓰기",
+      "major": "경제학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00151",
+      "name": "경영학원론",
+      "major": "경제학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "25101",
+      "name": "무역학원론",
+      "major": "경제학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "24171",
+      "name": "재무회계원리",
+      "major": "경제학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "25272",
+      "name": "다국적기업론",
+      "major": "경제학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "23376",
+      "name": "경제통계의이해",
+      "major": "경제학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "23271",
+      "name": "서양경제사",
+      "major": "경제학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "23203",
+      "name": "고급미시경제론",
+      "major": "경제학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00207",
+      "name": "한국사의이해",
+      "major": "경제학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00203",
+      "name": "환경과건강",
+      "major": "경제학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "23382",
+      "name": "행동경제학",
+      "major": "경제학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "23310",
+      "name": "공공경제학",
+      "major": "경제학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "23417",
+      "name": "성장과복지의경제학",
+      "major": "경제학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "23454",
+      "name": "기업경제학",
+      "major": "경제학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "23471",
+      "name": "금융시장론",
+      "major": "경제학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "23370",
+      "name": "기술혁신의경제학",
+      "major": "경제학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "21476",
+      "name": "부동산법제",
+      "major": "경제학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "28401",
+      "name": "빈곤론",
+      "major": "경제학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "23450",
+      "name": "증권투자론",
+      "major": "경제학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "24456",
+      "name": "경영분석",
+      "major": "경제학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00272",
+      "name": "세계의정치와경제",
+      "major": "경제학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "23401",
+      "name": "국제금융의이해",
+      "major": "경제학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00231",
+      "name": "컴퓨터의이해",
+      "major": "경영학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "24171",
+      "name": "재무회계원리",
+      "major": "경영학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00174",
+      "name": "글쓰기",
+      "major": "경영학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00151",
+      "name": "경영학원론",
+      "major": "경영학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00103",
+      "name": "세계의역사",
+      "major": "경영학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "23202",
+      "name": "기초미시경제론",
+      "major": "경영학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "24306",
+      "name": "마케팅론",
+      "major": "경영학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "24202",
+      "name": "경영분석을위한기초통계",
+      "major": "경영학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "24309",
+      "name": "인적자원관리",
+      "major": "경영학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00272",
+      "name": "세계의정치와경제",
+      "major": "경영학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00207",
+      "name": "한국사의이해",
+      "major": "경영학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00202",
+      "name": "테마가있는음악여행",
+      "major": "경영학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "24372",
+      "name": "조직창의성과혁신",
+      "major": "경영학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "24203",
+      "name": "중급재무회계",
+      "major": "경영학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "24271",
+      "name": "소비자행동론",
+      "major": "경영학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "24307",
+      "name": "재무관리",
+      "major": "경영학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "24476",
+      "name": "e-비즈니스",
+      "major": "경영학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "24310",
+      "name": "생산관리",
+      "major": "경영학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "24561",
+      "name": "국제경영학",
+      "major": "경영학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "24479",
+      "name": "세무회계",
+      "major": "경영학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00303",
+      "name": "숫자로이해하는기업과사회",
+      "major": "경영학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "24314",
+      "name": "노사관계론",
+      "major": "경영학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "24456",
+      "name": "경영분석",
+      "major": "경영학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "24471",
+      "name": "마케팅커뮤니케이션관리",
+      "major": "경영학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "12150",
+      "name": "중국어1",
+      "major": "무역학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "25101",
+      "name": "무역학원론",
+      "major": "무역학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00231",
+      "name": "컴퓨터의이해",
+      "major": "무역학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00103",
+      "name": "세계의역사",
+      "major": "무역학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00151",
+      "name": "경영학원론",
+      "major": "무역학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "23202",
+      "name": "기초미시경제론",
+      "major": "무역학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "25272",
+      "name": "다국적기업론",
+      "major": "무역학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "25282",
+      "name": "글로벌스마트비즈니스",
+      "major": "무역학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00272",
+      "name": "세계의정치와경제",
+      "major": "무역학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00207",
+      "name": "한국사의이해",
+      "major": "무역학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "24309",
+      "name": "인적자원관리",
+      "major": "무역학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "25273",
+      "name": "글로벌스타트업브랜딩",
+      "major": "무역학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "22152",
+      "name": "사회복지학개론",
+      "major": "무역학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "25386",
+      "name": "무역보험론",
+      "major": "무역학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "27435",
+      "name": "세계의음식·음식의세계",
+      "major": "무역학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "24561",
+      "name": "국제경영학",
+      "major": "무역학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "25204",
+      "name": "무역관습개론",
+      "major": "무역학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "25307",
+      "name": "글로벌스타트업마케팅",
+      "major": "무역학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "25483",
+      "name": "글로벌비즈니스네트워킹",
+      "major": "무역학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "25476",
+      "name": "해외시장조사론",
+      "major": "무역학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "25481",
+      "name": "글로벌프랜차이즈창업",
+      "major": "무역학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "25423",
+      "name": "글로벌자산관리",
+      "major": "무역학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "25477",
+      "name": "무역결제론",
+      "major": "무역학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37351",
+      "name": "생활과건강",
+      "major": "무역학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "26313",
+      "name": "영상제작입문",
+      "major": "미디어영상학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "26174",
+      "name": "사진의이해",
+      "major": "미디어영상학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "26171",
+      "name": "미디어와사회",
+      "major": "미디어영상학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "46404",
+      "name": "스포츠미디어커뮤니케이션",
+      "major": "미디어영상학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "00103",
+      "name": "세계의역사",
+      "major": "미디어영상학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00231",
+      "name": "컴퓨터의이해",
+      "major": "미디어영상학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "26210",
+      "name": "대중문화와영화비평",
+      "major": "미디어영상학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "26204",
+      "name": "뉴미디어기술과사이버사회",
+      "major": "미디어영상학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "26176",
+      "name": "사회변화와미디어트렌드",
+      "major": "미디어영상학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00371",
+      "name": "동서양고전의이해",
+      "major": "미디어영상학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00207",
+      "name": "한국사의이해",
+      "major": "미디어영상학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00202",
+      "name": "테마가있는음악여행",
+      "major": "미디어영상학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00174",
+      "name": "글쓰기",
+      "major": "미디어영상학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "26312",
+      "name": "그래픽커뮤니케이션",
+      "major": "미디어영상학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "26377",
+      "name": "1인미디어기획제작",
+      "major": "미디어영상학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "26314",
+      "name": "현대광고와카피전략",
+      "major": "미디어영상학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "43318",
+      "name": "문화산업과문화기획",
+      "major": "미디어영상학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "26315",
+      "name": "뉴미디어론",
+      "major": "미디어영상학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "26426",
+      "name": "미디어비평",
+      "major": "미디어영상학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "26429",
+      "name": "영화산업과마케팅",
+      "major": "미디어영상학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "26430",
+      "name": "미디어교육",
+      "major": "미디어영상학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "26432",
+      "name": "게임·애니메이션·VR의이해",
+      "major": "미디어영상학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "26471",
+      "name": "시사미디어영어",
+      "major": "미디어영상학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37351",
+      "name": "생활과건강",
+      "major": "미디어영상학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "27102",
+      "name": "한국지리여행",
+      "major": "관광학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "27213",
+      "name": "서비스매너",
+      "major": "관광학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "27101",
+      "name": "관광학개론",
+      "major": "관광학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00174",
+      "name": "글쓰기",
+      "major": "관광학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00103",
+      "name": "세계의역사",
+      "major": "관광학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "27105",
+      "name": "현대인의여가생활",
+      "major": "관광학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00302",
+      "name": "도시웰빙농업",
+      "major": "관광학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "27327",
+      "name": "이벤트 플래닝",
+      "major": "관광학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "27210",
+      "name": "관광마케팅",
+      "major": "관광학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00207",
+      "name": "한국사의이해",
+      "major": "관광학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "27422",
+      "name": "관광법규",
+      "major": "관광학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "46103",
+      "name": "여가레크리에이션",
+      "major": "관광학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "27431",
+      "name": "자연자원의이해",
+      "major": "관광학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "27207",
+      "name": "관광행동론",
+      "major": "관광학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "13358",
+      "name": "파리박물관기행",
+      "major": "관광학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "27314",
+      "name": "관광개발론",
+      "major": "관광학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "27433",
+      "name": "축제·이벤트관광",
+      "major": "관광학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "27436",
+      "name": "여행영어2",
+      "major": "관광학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37351",
+      "name": "생활과건강",
+      "major": "관광학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "21476",
+      "name": "부동산법제",
+      "major": "관광학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "43319",
+      "name": "세계의도시와건축",
+      "major": "관광학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "27320",
+      "name": "지역관광론",
+      "major": "관광학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "27435",
+      "name": "세계의음식·음식의세계",
+      "major": "관광학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "27401",
+      "name": "도시의이해",
+      "major": "관광학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00174",
+      "name": "글쓰기",
+      "major": "농학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00103",
+      "name": "세계의역사",
+      "major": "농학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00162",
+      "name": "농학원론",
+      "major": "농학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00231",
+      "name": "컴퓨터의이해",
+      "major": "농학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "31122",
+      "name": "숲과삶",
+      "major": "농학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "31267",
+      "name": "원예학",
+      "major": "농학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "31371",
+      "name": "농업유전학",
+      "major": "농학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00302",
+      "name": "도시웰빙농업",
+      "major": "농학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "31270",
+      "name": "가축생리학",
+      "major": "농학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00371",
+      "name": "동서양고전의이해",
+      "major": "농학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00207",
+      "name": "한국사의이해",
+      "major": "농학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "31373",
+      "name": "농업생물화학",
+      "major": "농학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "31191",
+      "name": "해충방제학",
+      "major": "농학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "31269",
+      "name": "농축산환경학",
+      "major": "농학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "31376",
+      "name": "토양학",
+      "major": "농학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "31399",
+      "name": "식물의학",
+      "major": "농학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "31457",
+      "name": "자원식물학",
+      "major": "농학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "31476",
+      "name": "재배식물육종학",
+      "major": "농학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "31416",
+      "name": "동물복지학",
+      "major": "농학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "31455",
+      "name": "시설원예학",
+      "major": "농학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "31478",
+      "name": "원예작물학2",
+      "major": "농학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "31480",
+      "name": "식용작물학2",
+      "major": "농학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37351",
+      "name": "생활과건강",
+      "major": "농학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "33492",
+      "name": "푸드마케팅",
+      "major": "농학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "43108",
+      "name": "대중문화의이해",
+      "major": "생활과학부",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "00151",
+      "name": "경영학원론",
+      "major": "생활과학부",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "00174",
+      "name": "글쓰기",
+      "major": "생활과학부",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "33172",
+      "name": "패션·소비·문화",
+      "major": "생활과학부",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "33171",
+      "name": "영양과건강",
+      "major": "생활과학부",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "33414",
+      "name": "가족자원관리학",
+      "major": "생활과학부",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "33307",
+      "name": "패션디자인",
+      "major": "생활과학부",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00207",
+      "name": "한국사의이해",
+      "major": "생활과학부",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00272",
+      "name": "세계의정치와경제",
+      "major": "생활과학부",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "33316",
+      "name": "가족발달",
+      "major": "생활과학부",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "33264",
+      "name": "인체생리학",
+      "major": "생활과학부",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00202",
+      "name": "테마가있는음악여행",
+      "major": "생활과학부",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "34172",
+      "name": "유비쿼터스컴퓨팅개론",
+      "major": "컴퓨터과학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "26174",
+      "name": "사진의이해",
+      "major": "컴퓨터과학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "34174",
+      "name": "파이썬프로그래밍기초",
+      "major": "컴퓨터과학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00272",
+      "name": "세계의정치와경제",
+      "major": "컴퓨터과학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00231",
+      "name": "컴퓨터의이해",
+      "major": "컴퓨터과학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "35103",
+      "name": "데이터정보처리입문",
+      "major": "컴퓨터과학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "34273",
+      "name": "HTML5웹프로그래밍",
+      "major": "컴퓨터과학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00202",
+      "name": "테마가있는음악여행",
+      "major": "컴퓨터과학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00203",
+      "name": "환경과건강",
+      "major": "컴퓨터과학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "34256",
+      "name": "이산수학",
+      "major": "컴퓨터과학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00207",
+      "name": "한국사의이해",
+      "major": "컴퓨터과학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "34257",
+      "name": "Java프로그래밍",
+      "major": "컴퓨터과학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "34524",
+      "name": "인공지능",
+      "major": "컴퓨터과학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "26312",
+      "name": "그래픽커뮤니케이션",
+      "major": "컴퓨터과학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "34301",
+      "name": "데이터베이스시스템",
+      "major": "컴퓨터과학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "34306",
+      "name": "디지털논리회로",
+      "major": "컴퓨터과학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "34416",
+      "name": "운영체제",
+      "major": "컴퓨터과학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "34525",
+      "name": "알고리즘",
+      "major": "컴퓨터과학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "34519",
+      "name": "소프트웨어공학",
+      "major": "컴퓨터과학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "34523",
+      "name": "정보통신망",
+      "major": "컴퓨터과학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "34476",
+      "name": "컴퓨터보안",
+      "major": "컴퓨터과학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "34471",
+      "name": "컴퓨터그래픽스",
+      "major": "컴퓨터과학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "34475",
+      "name": "모바일앱프로그래밍",
+      "major": "컴퓨터과학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37351",
+      "name": "생활과건강",
+      "major": "컴퓨터과학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00151",
+      "name": "경영학원론",
+      "major": "통계데이터과학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "35104",
+      "name": "R컴퓨팅",
+      "major": "통계데이터과학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "35103",
+      "name": "데이터정보처리입문",
+      "major": "통계데이터과학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00103",
+      "name": "세계의역사",
+      "major": "통계데이터과학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00174",
+      "name": "글쓰기",
+      "major": "통계데이터과학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00231",
+      "name": "컴퓨터의이해",
+      "major": "통계데이터과학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "35224",
+      "name": "통계학개론",
+      "major": "통계데이터과학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00303",
+      "name": "숫자로이해하는기업과사회",
+      "major": "통계데이터과학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "35226",
+      "name": "확률의개념과응용",
+      "major": "통계데이터과학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00207",
+      "name": "한국사의이해",
+      "major": "통계데이터과학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00272",
+      "name": "세계의정치와경제",
+      "major": "통계데이터과학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "35304",
+      "name": "엑셀데이터분석",
+      "major": "통계데이터과학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "35308",
+      "name": "통계조사방법론",
+      "major": "통계데이터과학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "35452",
+      "name": "데이터처리와활용",
+      "major": "통계데이터과학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "45405",
+      "name": "인터넷생활윤리",
+      "major": "통계데이터과학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "35203",
+      "name": "데이터시각화",
+      "major": "통계데이터과학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "35305",
+      "name": "회귀모형",
+      "major": "통계데이터과학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "35302",
+      "name": "파이썬데이터처리",
+      "major": "통계데이터과학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "35418",
+      "name": "예측방법론",
+      "major": "통계데이터과학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "35401",
+      "name": "딥러닝의통계적이해",
+      "major": "통계데이터과학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "35403",
+      "name": "AI를위한수학의응용",
+      "major": "통계데이터과학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37351",
+      "name": "생활과건강",
+      "major": "통계데이터과학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "35422",
+      "name": "다변량분석",
+      "major": "통계데이터과학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "35454",
+      "name": "데이터마이닝",
+      "major": "통계데이터과학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "36101",
+      "name": "환경보건학개론",
+      "major": "보건환경안전학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "31122",
+      "name": "숲과삶",
+      "major": "보건환경안전학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "00174",
+      "name": "글쓰기",
+      "major": "보건환경안전학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "37351",
+      "name": "생활과건강",
+      "major": "보건환경안전학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00207",
+      "name": "한국사의이해",
+      "major": "보건환경안전학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "36102",
+      "name": "공중보건학",
+      "major": "보건환경안전학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "36319",
+      "name": "생활폐기물관리",
+      "major": "보건환경안전학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "36311",
+      "name": "수질관리",
+      "major": "보건환경안전학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "22152",
+      "name": "사회복지학개론",
+      "major": "보건환경안전학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "36452",
+      "name": "보건행정",
+      "major": "보건환경안전학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00203",
+      "name": "환경과건강",
+      "major": "보건환경안전학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "36462",
+      "name": "환경생화학",
+      "major": "보건환경안전학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "36364",
+      "name": "산업안전",
+      "major": "보건환경안전학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "36314",
+      "name": "작업환경측정",
+      "major": "보건환경안전학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "36317",
+      "name": "대기오염관리",
+      "major": "보건환경안전학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "36320",
+      "name": "건강보험론",
+      "major": "보건환경안전학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "36351",
+      "name": "수질시험법",
+      "major": "보건환경안전학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "36353",
+      "name": "조사방법론",
+      "major": "보건환경안전학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00302",
+      "name": "도시웰빙농업",
+      "major": "보건환경안전학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "22475",
+      "name": "재난관리론",
+      "major": "보건환경안전학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "36454",
+      "name": "환경보건역학",
+      "major": "보건환경안전학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "36455",
+      "name": "산업독성학",
+      "major": "보건환경안전학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "36458",
+      "name": "유해폐기물관리",
+      "major": "보건환경안전학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37417",
+      "name": "보건교육",
+      "major": "보건환경안전학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00174",
+      "name": "글쓰기",
+      "major": "간호학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "37301",
+      "name": "기초간호과학",
+      "major": "간호학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37352",
+      "name": "정신건강과간호",
+      "major": "간호학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37302",
+      "name": "간호과정론",
+      "major": "간호학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37303",
+      "name": "가족건강간호학",
+      "major": "간호학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37310",
+      "name": "간호연구",
+      "major": "간호학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37304",
+      "name": "성인간호학",
+      "major": "간호학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37308",
+      "name": "청소년건강과간호",
+      "major": "간호학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37351",
+      "name": "생활과건강",
+      "major": "간호학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "37412",
+      "name": "전략적간호관리",
+      "major": "간호학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37415",
+      "name": "재활간호학",
+      "major": "간호학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37417",
+      "name": "보건교육",
+      "major": "간호학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00228",
+      "name": "교육의이해",
+      "major": "교육학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00174",
+      "name": "글쓰기",
+      "major": "교육학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "41355",
+      "name": "생애발달과교육",
+      "major": "교육학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "22152",
+      "name": "사회복지학개론",
+      "major": "교육학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "41152",
+      "name": "평생교육론",
+      "major": "교육학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00103",
+      "name": "세계의역사",
+      "major": "교육학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00207",
+      "name": "한국사의이해",
+      "major": "교육학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00202",
+      "name": "테마가있는음악여행",
+      "major": "교육학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "18372",
+      "name": "상담심리학",
+      "major": "교육학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "41252",
+      "name": "다문화교육론",
+      "major": "교육학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "41351",
+      "name": "교육과정및평가",
+      "major": "교육학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00272",
+      "name": "세계의정치와경제",
+      "major": "교육학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "41460",
+      "name": "노인교육론",
+      "major": "교육학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "41353",
+      "name": "성인학습및상담론",
+      "major": "교육학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "41370",
+      "name": "학교사회복지론",
+      "major": "교육학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "41001",
+      "name": "평생교육방법론",
+      "major": "교육학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "44350",
+      "name": "이상심리학",
+      "major": "교육학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "41354",
+      "name": "교육공학",
+      "major": "교육학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "41465",
+      "name": "직업·진로설계",
+      "major": "교육학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "41470",
+      "name": "가족교육론",
+      "major": "교육학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "44402",
+      "name": "평생교육실습",
+      "major": "교육학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "18205",
+      "name": "지역사회교육론",
+      "major": "교육학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37351",
+      "name": "생활과건강",
+      "major": "교육학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "41457",
+      "name": "교육고전의이해",
+      "major": "교육학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "41002",
+      "name": "자원봉사론",
+      "major": "교육학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "45301",
+      "name": "발달심리",
+      "major": "청소년교육과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "45101",
+      "name": "학교교육과청소년",
+      "major": "청소년교육과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "18250",
+      "name": "청소년교육개론",
+      "major": "청소년교육과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37351",
+      "name": "생활과건강",
+      "major": "청소년교육과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00174",
+      "name": "글쓰기",
+      "major": "청소년교육과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "45306",
+      "name": "청소년리더십개발",
+      "major": "청소년교육과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "45201",
+      "name": "청소년상담",
+      "major": "청소년교육과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "22152",
+      "name": "사회복지학개론",
+      "major": "청소년교육과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "45104",
+      "name": "청소년다문화교육",
+      "major": "청소년교육과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00202",
+      "name": "테마가있는음악여행",
+      "major": "청소년교육과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00302",
+      "name": "도시웰빙농업",
+      "major": "청소년교육과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "41366",
+      "name": "청소년학습이론및지도",
+      "major": "청소년교육과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "41370",
+      "name": "학교사회복지론",
+      "major": "청소년교육과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "44350",
+      "name": "이상심리학",
+      "major": "청소년교육과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "41368",
+      "name": "청소년활동론",
+      "major": "청소년교육과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "45102",
+      "name": "직업세계와직업정보",
+      "major": "청소년교육과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "41364",
+      "name": "청소년지도방법론",
+      "major": "청소년교육과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "45305",
+      "name": "청소년인성교육",
+      "major": "청소년교육과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "33418",
+      "name": "가족복지론",
+      "major": "청소년교육과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "45403",
+      "name": "청소년진로지도및상담",
+      "major": "청소년교육과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "45405",
+      "name": "인터넷생활윤리",
+      "major": "청소년교육과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "45406",
+      "name": "청소년성교육과성상담",
+      "major": "청소년교육과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "41002",
+      "name": "자원봉사론",
+      "major": "청소년교육과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "45304",
+      "name": "사회조사방법론",
+      "major": "청소년교육과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "43107",
+      "name": "고전함께읽기",
+      "major": "문화교양학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "43102",
+      "name": "문화와교양",
+      "major": "문화교양학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "43101",
+      "name": "영화로생각하기",
+      "major": "문화교양학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00103",
+      "name": "세계의역사",
+      "major": "문화교양학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00174",
+      "name": "글쓰기",
+      "major": "문화교양학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "43108",
+      "name": "대중문화의이해",
+      "major": "문화교양학과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "43206",
+      "name": "세계의풍속과문화",
+      "major": "문화교양학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00202",
+      "name": "테마가있는음악여행",
+      "major": "문화교양학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "43201",
+      "name": "서구지성사입문",
+      "major": "문화교양학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00272",
+      "name": "세계의정치와경제",
+      "major": "문화교양학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00207",
+      "name": "한국사의이해",
+      "major": "문화교양학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00371",
+      "name": "동서양고전의이해",
+      "major": "문화교양학과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "43323",
+      "name": "여성의삶과문화",
+      "major": "문화교양학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "43313",
+      "name": "신화의세계",
+      "major": "문화교양학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "43314",
+      "name": "생태적삶을찾아서",
+      "major": "문화교양학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "43318",
+      "name": "문화산업과문화기획",
+      "major": "문화교양학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "43324",
+      "name": "예술경영과예술행정",
+      "major": "문화교양학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "43208",
+      "name": "동서양문학고전산책",
+      "major": "문화교양학과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "27435",
+      "name": "세계의음식·음식의세계",
+      "major": "문화교양학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "13358",
+      "name": "파리박물관기행",
+      "major": "문화교양학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "43422",
+      "name": "행복에이르는지혜",
+      "major": "문화교양학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "43424",
+      "name": "근현대속의한국",
+      "major": "문화교양학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "43426",
+      "name": "정보사회와디지털문화",
+      "major": "문화교양학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "43319",
+      "name": "세계의도시와건축",
+      "major": "문화교양학과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "46101",
+      "name": "체육학개론",
+      "major": "생활체육지도과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00174",
+      "name": "글쓰기",
+      "major": "생활체육지도과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "00500",
+      "name": "원격대학교육의이해",
+      "major": "생활체육지도과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "26171",
+      "name": "미디어와사회",
+      "major": "생활체육지도과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "46105",
+      "name": "운동생리학",
+      "major": "생활체육지도과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "46107",
+      "name": "체육철학",
+      "major": "생활체육지도과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "37351",
+      "name": "생활과건강",
+      "major": "생활체육지도과",
+      "grade": 1,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "27105",
+      "name": "현대인의여가생활",
+      "major": "생활체육지도과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "46302",
+      "name": "스포츠정책론",
+      "major": "생활체육지도과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "46202",
+      "name": "체육실기기초",
+      "major": "생활체육지도과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "46207",
+      "name": "스포츠경영관리론",
+      "major": "생활체육지도과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00272",
+      "name": "세계의정치와경제",
+      "major": "생활체육지도과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "46208",
+      "name": "건강생활과응급처치",
+      "major": "생활체육지도과",
+      "grade": 2,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "00207",
+      "name": "한국사의이해",
+      "major": "생활체육지도과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "27433",
+      "name": "축제·이벤트관광",
+      "major": "생활체육지도과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "46201",
+      "name": "스포츠멘탈트레이닝",
+      "major": "생활체육지도과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "46304",
+      "name": "웨이트트레이닝",
+      "major": "생활체육지도과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "46301",
+      "name": "스포츠교육학",
+      "major": "생활체육지도과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "46303",
+      "name": "스포츠와AI",
+      "major": "생활체육지도과",
+      "grade": 3,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "41354",
+      "name": "교육공학",
+      "major": "생활체육지도과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "일반선택"
+    },
+    {
+      "course_code": "00203",
+      "name": "환경과건강",
+      "major": "생활체육지도과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "교양"
+    },
+    {
+      "course_code": "46401",
+      "name": "국제스포츠의이해",
+      "major": "생활체육지도과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "46402",
+      "name": "운동역학",
+      "major": "생활체육지도과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "46403",
+      "name": "운동학습과제어",
+      "major": "생활체육지도과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    },
+    {
+      "course_code": "46404",
+      "name": "스포츠미디어커뮤니케이션",
+      "major": "생활체육지도과",
+      "grade": 4,
+      "semester": 1,
+      "credits": 3,
+      "category": "전공"
+    }
+  ],
+  "stats": {
+    "total_majors": 24,
+    "total_courses": 506,
+    "courses_per_major": {
+      "국어국문학과": 24,
+      "영어영문학과": 24,
+      "중어중문학과": 24,
+      "프랑스언어문화학과": 24,
+      "일본학과": 24,
+      "법학과": 24,
+      "행정학과": 24,
+      "경제학과": 24,
+      "경영학과": 24,
+      "무역학과": 24,
+      "미디어영상학과": 24,
+      "관광학과": 24,
+      "사회복지학과": 0,
+      "농학과": 24,
+      "생활과학부": 12,
+      "컴퓨터과학과": 24,
+      "통계데이터과학과": 24,
+      "보건환경안전학과": 24,
+      "간호학과": 12,
+      "교육학과": 25,
+      "청소년교육과": 24,
+      "유아교육과": 0,
+      "문화교양학과": 24,
+      "생활체육지도과": 25
+    }
+  }
+}

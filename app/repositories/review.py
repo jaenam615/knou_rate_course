@@ -21,14 +21,13 @@ class ReviewRepository(BaseRepository[Review]):
         return list(result.scalars().all())
 
     async def get_by_user_and_course(
-        self, user_id: int, course_id: int, year: int, semester: int
+        self, user_id: int, course_id: int
     ) -> Review | None:
+        """Check if user already has a review for this course."""
         result = await self.db.execute(
             select(Review)
             .where(Review.user_id == user_id)
             .where(Review.course_id == course_id)
-            .where(Review.year == year)
-            .where(Review.semester == semester)
         )
         return result.scalar_one_or_none()
 

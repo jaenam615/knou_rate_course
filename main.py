@@ -38,7 +38,10 @@ KNOU 학생들이 수강신청 시 **꿀과목**을 빠르게 찾을 수 있도�
     version="0.1.0",
     lifespan=lifespan,
     openapi_tags=[
-        {"name": "auth", "description": "인증 관련 API (회원가입, 로그인, 이메일 인증)"},
+        {
+            "name": "auth",
+            "description": "인증 관련 API (회원가입, 로그인, 이메일 인증)",
+        },
         {"name": "majors", "description": "전공 목록 조회"},
         {"name": "courses", "description": "과목 조회 및 검색"},
         {"name": "reviews", "description": "후기 작성 (인증 필요)"},

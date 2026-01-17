@@ -1,7 +1,14 @@
-from sqlalchemy import Boolean, ForeignKey, Integer, String, SmallInteger
+from typing import TYPE_CHECKING
+
+from sqlalchemy import Boolean, ForeignKey, SmallInteger, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
+from app.constants.course_constants import CourseStatus
 from app.models.base import Base
+
+if TYPE_CHECKING:
+    from app.models.major import Major
+    from app.models.review import Review
 
 
 class Course(Base):
@@ -27,16 +34,11 @@ class CourseOffering(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     course_id: Mapped[int] = mapped_column(ForeignKey("courses.id"), nullable=False)
-    year: Mapped[int] = mapped_column(SmallInteger, nullable=False)
     semester: Mapped[int] = mapped_column(SmallInteger, nullable=False)  # 1 or 2
     grade_target: Mapped[int] = mapped_column(SmallInteger, nullable=False)  # 1-4
-    is_open: Mapped[bool] = mapped_column(Boolean, default=True)
+    status: Mapped[CourseStatus] = mapped_column(Boolean, default=CourseStatus.ACTIVE)
 
     course: Mapped["Course"] = relationship(back_populates="offerings")
 
     def __repr__(self) -> str:
-        return f"CourseOffering(course_id={self.course_id}, year={self.year}, semester={self.semester})"
-
-
-from app.models.major import Major
-from app.models.review import Review
+        return f"CourseOffering(course_id={self.course_id}, semester={self.semester})"

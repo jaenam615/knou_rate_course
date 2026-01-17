@@ -35,14 +35,10 @@ class ReviewService:
         if not course:
             raise CourseNotFoundError("Course not found")
 
-        # Check for duplicate review (same user, course, year, semester)
-        existing = await self.review_repo.get_by_user_and_course(
-            user.id, course_id, data.year, data.semester
-        )
+        # Check for duplicate review (same user, course)
+        existing = await self.review_repo.get_by_user_and_course(user.id, course_id)
         if existing:
-            raise DuplicateReviewError(
-                "You have already reviewed this course for this semester"
-            )
+            raise DuplicateReviewError("You have already reviewed this course")
 
         # Validate tags
         if data.tag_ids:
@@ -54,8 +50,6 @@ class ReviewService:
         review = await self.review_repo.create(
             course_id=course_id,
             user_id=user.id,
-            year=data.year,
-            semester=data.semester,
             rating_overall=data.rating_overall,
             difficulty=data.difficulty,
             workload=data.workload,
@@ -75,8 +69,6 @@ class ReviewService:
         return ReviewResponse(
             id=review.id,
             course_id=review.course_id,
-            year=review.year,
-            semester=review.semester,
             rating_overall=review.rating_overall,
             difficulty=review.difficulty,
             workload=review.workload,

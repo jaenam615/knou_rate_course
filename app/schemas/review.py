@@ -6,8 +6,6 @@ from app.schemas.tag import TagResponse
 
 
 class ReviewCreate(BaseModel):
-    year: int = Field(..., ge=2000, le=2100)
-    semester: int = Field(..., ge=1, le=2)
     rating_overall: int = Field(..., ge=1, le=5)
     difficulty: int = Field(..., ge=1, le=5)
     workload: int = Field(..., ge=1, le=5)
@@ -18,8 +16,6 @@ class ReviewCreate(BaseModel):
 class ReviewResponse(BaseModel):
     id: int
     course_id: int
-    year: int
-    semester: int
     rating_overall: int
     difficulty: int
     workload: int
