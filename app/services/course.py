@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.repositories import CourseRepository, ReviewRepository
-from app.schemas import CourseDetailResponse, CourseListResponse
+from app.schemas import CourseDetailResponse, CourseListResponse, MajorResponse
 
 
 class CourseService:
@@ -53,7 +53,11 @@ class CourseService:
             course_code=course.course_code,
             name=course.name,
             is_archived=course.is_archived,
-            major={"id": course.major.id, "name": course.major.name},
+            major=MajorResponse(
+                id=course.major.id,
+                name=course.major.name,
+                department=course.major.department,
+            ),
             avg_rating=data["avg_rating"],
             avg_difficulty=data["avg_difficulty"],
             avg_workload=data["avg_workload"],

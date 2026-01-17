@@ -7,6 +7,10 @@ from app.models.base import Base
 
 ModelType = TypeVar("ModelType", bound=Base)
 
+"""
+A generic base repository providing common CRUD operations.
+"""
+
 
 class BaseRepository(Generic[ModelType]):
     def __init__(self, model: type[ModelType], db: AsyncSession):

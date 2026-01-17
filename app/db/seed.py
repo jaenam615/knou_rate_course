@@ -26,27 +26,14 @@ from app.models import (
     User,
 )
 
-# Fixed tags (EVAL_METHOD)
 EVAL_TAGS = [
     "기말시험",
     "기말과제물",
-    "중간시험",
-    "출석대체",
-    "퀴즈",
-    "팀플",
+    "중간과제물",
+    "출석수업",
 ]
 
-# Freeform tags
-FREEFORM_TAGS = [
-    "기출많음",
-    "오픈북",
-    "암기위주",
-    "이해위주",
-    "과제헬",
-    "점수잘줌",
-    "교수님친절",
-    "강의재밌음",
-]
+FREEFORM_TAGS = []
 
 # Department (college) mapping for majors
 MAJOR_DEPARTMENTS = {

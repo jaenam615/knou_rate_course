@@ -1,29 +1,23 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.utils import create_access_token, CurrentUser
 from app.db import get_db
-from app.schemas import (
-    SignupRequest,
-    LoginRequest,
-    TokenResponse,
-    UserResponse,
-    MessageResponse,
-    VerifyEmailRequest,
-    ResendVerificationRequest,
-)
+from app.schemas import (LoginRequest, MessageResponse,
+                         ResendVerificationRequest, SignupRequest,
+                         TokenResponse, UserResponse, VerifyEmailRequest)
 from app.services import AuthService
-from app.services.auth import (
-    InvalidEmailDomainError,
-    EmailAlreadyExistsError,
-    InvalidCredentialsError,
-    EmailNotVerifiedError,
-    InvalidVerificationTokenError,
-    VerificationTokenExpiredError,
-    AuthServiceError,
-)
+from app.services.auth import (AuthServiceError, EmailAlreadyExistsError,
+                               EmailNotVerifiedError, InvalidCredentialsError,
+                               InvalidEmailDomainError,
+                               InvalidVerificationTokenError,
+                               VerificationTokenExpiredError)
+from app.utils import CurrentUser, create_access_token
 
 router = APIRouter()
+
+"""
+Authentication and User Management Endpoints
+"""
 
 
 @router.post("/signup", response_model=MessageResponse, status_code=201)
@@ -34,15 +28,11 @@ async def signup(
     auth_service = AuthService(db)
 
     try:
-        user, token = await auth_service.signup(data.email, data.password)
+        await auth_service.signup(str(data.email), data.password)
     except InvalidEmailDomainError as e:
         raise HTTPException(status_code=400, detail=str(e))
     except EmailAlreadyExistsError as e:
         raise HTTPException(status_code=409, detail=str(e))
-
-    # TODO: Send verification email with token
-    # For now, just return success message
-    # In production: send_verification_email(user.email, token)
 
     return MessageResponse(
         message="Signup successful. Please check your email to verify your account."

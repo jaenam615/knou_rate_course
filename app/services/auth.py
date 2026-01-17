@@ -1,10 +1,12 @@
+import asyncio
 import secrets
-from datetime import datetime, timedelta
+from datetime import UTC, datetime, timedelta
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models import User
 from app.repositories import UserRepository
+from app.services.mailer import send_verification_email
 
 KNOU_EMAIL_DOMAIN = "@knou.ac.kr"
 VERIFICATION_TOKEN_EXPIRY_HOURS = 24
@@ -61,24 +63,31 @@ class AuthService:
     def _generate_verification_token(self) -> str:
         return secrets.token_urlsafe(32)
 
-    async def signup(self, email: str, password: str) -> tuple[User, str]:
+    async def signup(self, email: str, password: str) -> User:
         """
-        Register a new user. Returns the user and verification token.
-        The caller should send the verification email.
+        Register a new user and sends verification email.
+        Returns the user.
         """
+        user = await self._create_user(email, password)
+        try:
+            await self._issue_token_and_send(user)
+        except Exception:
+            pass
+
+        return user
+
+    async def _create_user(self, email: str, password: str) -> User:
+        """Create a new user in the database."""
         email = email.lower().strip()
         self._validate_knou_email(email)
 
-        # Check if email already exists
         existing = await self.user_repo.get_by_email(email)
         if existing:
             raise EmailAlreadyExistsError("Email already registered")
 
-        # Generate verification token
         token = self._generate_verification_token()
-        expires = datetime.utcnow() + timedelta(hours=VERIFICATION_TOKEN_EXPIRY_HOURS)
+        expires = datetime.now(UTC) + timedelta(hours=VERIFICATION_TOKEN_EXPIRY_HOURS)
 
-        # Create user
         user = await self.user_repo.create(
             email=email,
             password_hash=self._hash_password(password),
@@ -87,7 +96,37 @@ class AuthService:
             verification_token_expires=expires,
         )
 
-        return user, token
+        return user
+
+    async def resend_verification(self, email: str) -> None:
+        user = await self.user_repo.get_by_email(email.lower().strip())
+        if not user:
+            return
+        if user.is_verified:
+            return
+
+        await self._issue_token_and_send(user)
+
+    async def _issue_token_and_send(self, user: User) -> None:
+        token = self._generate_verification_token()
+        expires = datetime.now(UTC) + timedelta(hours=24)
+
+        await self.user_repo.update(
+            instance=user,
+            verification_token=token,
+            verification_token_expires=expires,
+        )
+
+        try:
+            await self._send_verification_email(user.email, token)
+        except Exception:
+            pass
+
+    async def _send_verification_email(self, email: str, token: str) -> None:
+        verify_url = f"{self.settings.FRONTEND_URL}/verify-email?token={token}"
+        await asyncio.to_thread(
+            send_verification_email(to_email=email, verify_url=verify_url)
+        )
 
     async def verify_email(self, token: str) -> User:
         """Verify user's email with the token."""
@@ -123,26 +162,3 @@ class AuthService:
             raise EmailNotVerifiedError("Email not verified. Please check your email.")
 
         return user
-
-    async def resend_verification(self, email: str) -> tuple[User, str]:
-        """Resend verification email. Returns user and new token."""
-        email = email.lower().strip()
-
-        user = await self.user_repo.get_by_email(email)
-        if not user:
-            raise InvalidCredentialsError("Email not found")
-
-        if user.is_verified:
-            raise AuthServiceError("Email already verified")
-
-        # Generate new token
-        token = self._generate_verification_token()
-        expires = datetime.utcnow() + timedelta(hours=VERIFICATION_TOKEN_EXPIRY_HOURS)
-
-        await self.user_repo.update(
-            user,
-            verification_token=token,
-            verification_token_expires=expires,
-        )
-
-        return user, token

@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import UTC, datetime, timedelta
 from typing import Annotated
 
 import jwt
@@ -15,7 +15,7 @@ security = HTTPBearer()
 
 
 def create_access_token(user_id: int) -> str:
-    expire = datetime.utcnow() + timedelta(
+    expire = datetime.now(UTC) + timedelta(
         minutes=settings.jwt_access_token_expire_minutes
     )
     payload = {
