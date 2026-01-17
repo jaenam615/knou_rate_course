@@ -1,6 +1,9 @@
+from enum import StrEnum
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Boolean, ForeignKey, SmallInteger, String
+from sqlalchemy import Boolean
+from sqlalchemy import Enum as SAEnum
+from sqlalchemy import ForeignKey, Integer, SmallInteger, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.constants.course_constants import CourseStatus
@@ -14,11 +17,10 @@ if TYPE_CHECKING:
 class Course(Base):
     __tablename__ = "courses"
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
     major_id: Mapped[int] = mapped_column(ForeignKey("majors.id"), nullable=False)
     course_code: Mapped[str] = mapped_column(String(20), unique=True, nullable=False)
     name: Mapped[str] = mapped_column(String(200), nullable=False)
-    credits: Mapped[int] = mapped_column(SmallInteger, default=3)
     is_archived: Mapped[bool] = mapped_column(Boolean, default=False)
 
     major: Mapped["Major"] = relationship(back_populates="courses")
@@ -32,11 +34,13 @@ class Course(Base):
 class CourseOffering(Base):
     __tablename__ = "course_offerings"
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
     course_id: Mapped[int] = mapped_column(ForeignKey("courses.id"), nullable=False)
     semester: Mapped[int] = mapped_column(SmallInteger, nullable=False)  # 1 or 2
     grade_target: Mapped[int] = mapped_column(SmallInteger, nullable=False)  # 1-4
-    status: Mapped[CourseStatus] = mapped_column(Boolean, default=CourseStatus.ACTIVE)
+    status: Mapped[CourseStatus] = mapped_column(
+        SAEnum(CourseStatus, name="course_status"), default=CourseStatus.ACTIVE
+    )
 
     course: Mapped["Course"] = relationship(back_populates="offerings")
 

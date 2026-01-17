@@ -60,7 +60,7 @@ MVP 목표는 “2주 내 출시”이며, 기능을 최소화하고 **검색/�
 - **majors**
   - id, name
 - **courses**
-  - id, major_id, course_code, name, credits, is_archived
+  - id, major_id, course_code, name, is_archived
 - **course_offerings**
   - id, course_id, year, semester, grade_target, is_open
 - **reviews**

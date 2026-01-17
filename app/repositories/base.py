@@ -13,8 +13,10 @@ class BaseRepository(Generic[ModelType]):
         self.model = model
         self.db = db
 
-    async def get_by_id(self, id: int) -> ModelType | None:
-        result = await self.db.execute(select(self.model).where(self.model.id == id))
+    async def get_by_id(self, entity_id: int) -> ModelType | None:
+        result = await self.db.execute(
+            select(self.model).where(self.model.id == entity_id)
+        )
         return result.scalar_one_or_none()
 
     async def get_all(self) -> list[ModelType]:

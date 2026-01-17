@@ -18,7 +18,6 @@ class CourseRepository(BaseRepository[Course]):
         limit: int = 20,
         offset: int = 0,
     ) -> list[dict]:
-        # Build subquery for review stats
         review_stats = (
             select(
                 Review.course_id,
@@ -38,7 +37,6 @@ class CourseRepository(BaseRepository[Course]):
                 Course.id,
                 Course.course_code,
                 Course.name,
-                Course.credits,
                 Major.name.label("major_name"),
                 review_stats.c.avg_rating,
                 review_stats.c.avg_difficulty,
@@ -70,17 +68,16 @@ class CourseRepository(BaseRepository[Course]):
                 "id": row.id,
                 "course_code": row.course_code,
                 "name": row.name,
-                "credits": row.credits,
                 "major_name": row.major_name,
-                "avg_rating": round(float(row.avg_rating), 2)
-                if row.avg_rating
-                else None,
-                "avg_difficulty": round(float(row.avg_difficulty), 2)
-                if row.avg_difficulty
-                else None,
-                "avg_workload": round(float(row.avg_workload), 2)
-                if row.avg_workload
-                else None,
+                "avg_rating": (
+                    round(float(row.avg_rating), 2) if row.avg_rating else None
+                ),
+                "avg_difficulty": (
+                    round(float(row.avg_difficulty), 2) if row.avg_difficulty else None
+                ),
+                "avg_workload": (
+                    round(float(row.avg_workload), 2) if row.avg_workload else None
+                ),
                 "review_count": row.review_count,
             }
             for row in result.all()
@@ -112,14 +109,14 @@ class CourseRepository(BaseRepository[Course]):
 
         return {
             "course": course,
-            "avg_rating": round(float(stats.avg_rating), 2)
-            if stats.avg_rating
-            else None,
-            "avg_difficulty": round(float(stats.avg_difficulty), 2)
-            if stats.avg_difficulty
-            else None,
-            "avg_workload": round(float(stats.avg_workload), 2)
-            if stats.avg_workload
-            else None,
+            "avg_rating": (
+                round(float(stats.avg_rating), 2) if stats.avg_rating else None
+            ),
+            "avg_difficulty": (
+                round(float(stats.avg_difficulty), 2) if stats.avg_difficulty else None
+            ),
+            "avg_workload": (
+                round(float(stats.avg_workload), 2) if stats.avg_workload else None
+            ),
             "review_count": stats.review_count or 0,
         }

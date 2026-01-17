@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Boolean, DateTime, ForeignKey, SmallInteger, Text
+from sqlalchemy import Boolean, DateTime, ForeignKey, Integer, SmallInteger, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.models.base import Base
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 class Review(Base):
     __tablename__ = "reviews"
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
     course_id: Mapped[int] = mapped_column(ForeignKey("courses.id"), nullable=False)
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False)
     rating_overall: Mapped[int] = mapped_column(SmallInteger, nullable=False)  # 1-5

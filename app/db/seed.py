@@ -16,16 +16,15 @@ from app.constants.course_constants import CourseStatus
 from app.db.database import AsyncSessionLocal, engine
 from app.models import (
     Base,
-    Major,
     Course,
     CourseOffering,
+    Major,
+    Review,
+    ReviewTag,
     Tag,
     TagType,
     User,
-    Review,
-    ReviewTag,
 )
-
 
 # Fixed tags (EVAL_METHOD)
 EVAL_TAGS = [
@@ -157,7 +156,9 @@ async def seed_database():
                 department = MAJOR_DEPARTMENTS.get(name, "기타")
             else:
                 name = major_data["name"]
-                department = major_data.get("department", MAJOR_DEPARTMENTS.get(name, "기타"))
+                department = major_data.get(
+                    "department", MAJOR_DEPARTMENTS.get(name, "기타")
+                )
 
             major = Major(
                 name=name,
@@ -207,7 +208,6 @@ async def seed_database():
                 major_id=major.id,
                 course_code=course_code,
                 name=course_data["name"],
-                credits=course_data.get("credits", 3),
             )
             db.add(course)
             course_count += 1

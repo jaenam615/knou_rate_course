@@ -1,6 +1,6 @@
 import enum
 
-from sqlalchemy import Enum, String
+from sqlalchemy import Enum, Integer, String
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.models.base import Base
@@ -14,7 +14,7 @@ class TagType(enum.Enum):
 class Tag(Base):
     __tablename__ = "tags"
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[str] = mapped_column(String(50), unique=True, nullable=False)
     type: Mapped[TagType] = mapped_column(Enum(TagType), nullable=False)
 

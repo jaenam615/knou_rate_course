@@ -8,7 +8,6 @@ class CourseResponse(BaseModel):
     id: int
     course_code: str
     name: str
-    credits: int
     is_archived: bool
     major_id: int
 
@@ -20,7 +19,6 @@ class CourseListResponse(BaseModel):
     id: int
     course_code: str
     name: str
-    credits: int
     major_name: str
     avg_rating: float | None = None
     avg_difficulty: float | None = None
@@ -32,7 +30,6 @@ class CourseDetailResponse(BaseModel):
     id: int
     course_code: str
     name: str
-    credits: int
     is_archived: bool
     major: MajorResponse
     avg_rating: float | None = None

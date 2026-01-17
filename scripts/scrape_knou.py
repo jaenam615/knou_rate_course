@@ -8,12 +8,11 @@ Run with: python -m scripts.scrape_knou
 import asyncio
 import json
 import re
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
 from pathlib import Path
 
 import httpx
 from bs4 import BeautifulSoup
-
 
 # Department (college) to major mapping with curriculum URLs
 DEPARTMENTS = {
@@ -69,7 +68,6 @@ class Course:
     major: str
     grade: int  # 1-4
     semester: int  # 1 or 2
-    credits: int = 3
     category: str = ""  # 전공, 교양, etc.
 
 

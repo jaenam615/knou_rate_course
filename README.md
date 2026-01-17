@@ -241,7 +241,7 @@ knou_rate_course/
 │ name        │   └───│ major_id    │   └───│ course_id       │
 └─────────────┘       │ course_code │       │ year            │
                       │ name        │       │ semester        │
-                      │ credits     │       │ grade_target    │
+                      │             │       │ grade_target    │
                       │ is_archived │       │ is_open         │
                       └─────────────┘       └─────────────────┘
                              │
