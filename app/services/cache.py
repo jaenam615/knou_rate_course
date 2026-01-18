@@ -3,7 +3,7 @@ from typing import Awaitable, Callable, TypeVar
 
 import redis.asyncio as redis
 
-from app.constants.cache_constants import CacheConstants
+from app.constants import CacheTTL
 
 T = TypeVar("T")
 
@@ -16,7 +16,7 @@ class RedisCache:
         self,
         key: str,
         loader: Callable[[], Awaitable[T]],
-        ttl: int = CacheConstants.DEFAULT_TIMEOUT,
+        ttl: int = CacheTTL.DEFAULT,
     ) -> T:
         cached = await self.client.get(key)
         if cached is not None:

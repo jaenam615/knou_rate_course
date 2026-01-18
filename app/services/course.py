@@ -1,6 +1,6 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.constants.cache_constants import CacheConstants
+from app.constants import CacheTTL
 from app.models import User
 from app.repositories import CourseRepository, ReviewRepository
 from app.schemas import (CourseDetailResponse, CourseListResponse,
@@ -42,7 +42,7 @@ class CourseService:
                 key = f"courses:list:v1:major={major_key}:sort={sort}:limit={limit}:offset={offset}"
                 rows = await self.cache.get_or_set_json(
                     key=key,
-                    ttl=CacheConstants.DEFAULT_TIMEOUT,
+                    ttl=CacheTTL.DEFAULT,
                     loader=_load_course_list,
                 )
             except Exception:

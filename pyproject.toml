@@ -18,8 +18,37 @@ dependencies = [
     "httpx>=0.28.0",
     "beautifulsoup4>=4.12.0",
     "lxml>=5.0.0",
-    "black>=25.12.0",
     "fastapi-mail>=1.6.1",
     "sendgrid>=6.12.5",
     "redis>=5.0.0",
+    "slowapi>=0.1.9",
 ]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=4.1.0",
+    "httpx>=0.28.0",
+]
+dev = [
+    "black>=25.12.0",
+    "ruff>=0.4.0",
+    "mypy>=1.10.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+ignore = ["E501"]
+
+[tool.black]
+line-length = 100
+target-version = ["py312"]

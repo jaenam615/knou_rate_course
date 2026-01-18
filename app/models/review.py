@@ -1,8 +1,8 @@
 from datetime import UTC, datetime
 from typing import TYPE_CHECKING
 
-from sqlalchemy import (Boolean, DateTime, ForeignKey, Integer, SmallInteger,
-                        Text)
+from sqlalchemy import (Boolean, DateTime, ForeignKey, Index, Integer,
+                        SmallInteger, Text, UniqueConstraint)
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.models.base import Base
@@ -15,6 +15,12 @@ if TYPE_CHECKING:
 
 class Review(Base):
     __tablename__ = "reviews"
+    __table_args__ = (
+        UniqueConstraint("user_id", "course_id", name="uq_reviews_user_course"),
+        Index("ix_reviews_course_id", "course_id"),
+        Index("ix_reviews_created_at", "created_at"),
+        Index("ix_reviews_course_visible", "course_id", "is_hidden", "created_at"),
+    )
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     course_id: Mapped[int] = mapped_column(ForeignKey("courses.id"), nullable=False)
@@ -23,7 +29,9 @@ class Review(Base):
     difficulty: Mapped[int] = mapped_column(SmallInteger, nullable=False)  # 1-5
     workload: Mapped[int] = mapped_column(SmallInteger, nullable=False)  # 1-5
     text: Mapped[str] = mapped_column(Text, nullable=False)
-    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=datetime.now(UTC))
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=datetime.now(UTC)
+    )
     is_hidden: Mapped[bool] = mapped_column(Boolean, default=False)
 
     course: Mapped["Course"] = relationship(back_populates="reviews")

@@ -1,12 +1,11 @@
-from enum import StrEnum
 from typing import TYPE_CHECKING
 
 from sqlalchemy import Boolean
 from sqlalchemy import Enum as SAEnum
-from sqlalchemy import ForeignKey, Integer, SmallInteger, String
+from sqlalchemy import ForeignKey, Index, Integer, SmallInteger, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from app.constants.course_constants import CourseStatus
+from app.constants.course import CourseStatus
 from app.models.base import Base
 
 if TYPE_CHECKING:
@@ -16,6 +15,12 @@ if TYPE_CHECKING:
 
 class Course(Base):
     __tablename__ = "courses"
+    __table_args__ = (
+        Index("ix_courses_major_id", "major_id"),
+        Index("ix_courses_is_archived", "is_archived"),
+        Index("ix_courses_major_archived", "major_id", "is_archived"),
+        Index("ix_courses_name", "name"),
+    )
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     major_id: Mapped[int] = mapped_column(ForeignKey("majors.id"), nullable=False)

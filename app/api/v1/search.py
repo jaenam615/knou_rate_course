@@ -4,10 +4,11 @@ Search and Trending API endpoints.
 
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, Query, Request
 from redis import Redis
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.core.rate_limit import RATE_LIMIT_SEARCH, limiter
 from app.db import get_db
 from app.db.redis import get_redis
 from app.deps.cache import get_cache
@@ -21,7 +22,9 @@ router = APIRouter()
 
 
 @router.get("/search", response_model=list[SearchResult])
+@limiter.limit(RATE_LIMIT_SEARCH)
 async def search_courses(
+    request: Request,
     current_user: CurrentUser,
     q: Annotated[str, Query(min_length=2, max_length=100, description="Search query")],
     db: AsyncSession = Depends(get_db),

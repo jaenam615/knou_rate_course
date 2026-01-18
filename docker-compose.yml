@@ -1,3 +1,9 @@
+# Local development docker-compose
+# Usage: docker compose up -d
+#
+# This uses .env file for configuration by default.
+# For Docker internal networking, database/redis URLs are overridden below.
+
 services:
   db:
     image: postgres:16-alpine
@@ -31,14 +37,12 @@ services:
     build: .
     ports:
       - "8000:8000"
+    env_file:
+      - .env
     environment:
+      # Override URLs for Docker internal networking
       DATABASE_URL: postgresql+asyncpg://postgres:postgres@db:5432/knou_rate_course
       REDIS_URL: redis://redis:6379
-      DEBUG: "true"
-      JWT_SECRET_KEY: local-dev-secret-change-in-prod
-      SENDGRID_API_KEY: local_email_key
-      FROM_EMAIL: no-reply@knouhoney.com
-      FRONTEND_URL: http://localhost:3000
     depends_on:
       db:
         condition: service_healthy

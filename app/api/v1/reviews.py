@@ -1,6 +1,7 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.core.rate_limit import RATE_LIMIT_WRITE, limiter
 from app.db import get_db
 from app.schemas import ReviewCreate, ReviewResponse
 from app.services import ReviewService
@@ -16,7 +17,9 @@ router = APIRouter()
 @router.post(
     "/courses/{course_id}/reviews", response_model=ReviewResponse, status_code=201
 )
+@limiter.limit(RATE_LIMIT_WRITE)
 async def create_review(
+    request: Request,
     course_id: int,
     review_data: ReviewCreate,
     current_user: CurrentUser,

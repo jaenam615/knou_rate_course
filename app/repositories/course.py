@@ -2,11 +2,9 @@ from sqlalchemy import case, func, literal, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
+from app.constants import ReviewConstants
 from app.models import Course, Major, Review, ReviewTag, Tag
 from app.repositories.base import BaseRepository
-
-# Threshold for eval summary (need more than this many reviews to count)
-EVAL_TAG_THRESHOLD = 3
 
 
 class CourseRepository(BaseRepository[Course]):
@@ -205,6 +203,6 @@ class CourseRepository(BaseRepository[Course]):
 
         return {
             "final_type": final_type,
-            "has_midterm": midterm > EVAL_TAG_THRESHOLD,
-            "has_attendance": attendance > EVAL_TAG_THRESHOLD,
+            "has_midterm": midterm > ReviewConstants.EVAL_TAG_THRESHOLD,
+            "has_attendance": attendance > ReviewConstants.EVAL_TAG_THRESHOLD,
         }

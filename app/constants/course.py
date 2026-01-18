@@ -1,3 +1,5 @@
+"""Course-related constants and enums."""
+
 from enum import StrEnum
 
 

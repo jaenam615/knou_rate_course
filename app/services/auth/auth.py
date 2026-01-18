@@ -1,11 +1,12 @@
 import asyncio
-import os
+import logging
 import secrets
 from datetime import UTC, datetime, timedelta
-from venv import logger
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.config import settings
+from app.constants import AuthConstants
 from app.models import User
 from app.repositories import UserRepository
 from app.services.auth.errors import (EmailAlreadyExistsError,
@@ -16,9 +17,7 @@ from app.services.auth.errors import (EmailAlreadyExistsError,
                                       VerificationTokenExpiredError)
 from app.services.mailer import send_verification_email
 
-KNOU_EMAIL_DOMAIN = "@knou.ac.kr"
-VERIFICATION_TOKEN_EXPIRY_HOURS = 24
-FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:3000")
+logger = logging.getLogger(__name__)
 
 
 class AuthService:
@@ -26,9 +25,9 @@ class AuthService:
         self.user_repo = UserRepository(db)
 
     def _validate_knou_email(self, email: str) -> None:
-        if not email.lower().endswith(KNOU_EMAIL_DOMAIN):
+        if not email.lower().endswith(AuthConstants.KNOU_EMAIL_DOMAIN):
             raise InvalidEmailDomainError(
-                f"Email must be a KNOU email address ({KNOU_EMAIL_DOMAIN})"
+                f"Email must be a KNOU email address ({AuthConstants.KNOU_EMAIL_DOMAIN})"
             )
 
     def _hash_password(self, password: str) -> str:
@@ -53,7 +52,7 @@ class AuthService:
         try:
             await self._issue_token_and_send(user)
         except Exception:
-            pass
+            logger.exception("Failed to send verification email during signup for %s", email)
 
         return user
 
@@ -67,7 +66,7 @@ class AuthService:
             raise EmailAlreadyExistsError("Email already registered")
 
         token = self._generate_verification_token()
-        expires = datetime.now(UTC) + timedelta(hours=VERIFICATION_TOKEN_EXPIRY_HOURS)
+        expires = datetime.now(UTC) + timedelta(hours=AuthConstants.VERIFICATION_TOKEN_EXPIRY_HOURS)
 
         user = await self.user_repo.create(
             email=email,
@@ -90,7 +89,7 @@ class AuthService:
 
     async def _issue_token_and_send(self, user: User) -> None:
         token = self._generate_verification_token()
-        expires = datetime.now(UTC) + timedelta(hours=24)
+        expires = datetime.now(UTC) + timedelta(hours=AuthConstants.VERIFICATION_TOKEN_EXPIRY_HOURS)
 
         await self.user_repo.update(
             instance=user,
@@ -101,12 +100,10 @@ class AuthService:
         try:
             await self._send_verification_email(user.email, token)
         except Exception:
-            logger.exception("Failed to send verification email")
-            pass
+            logger.exception("Failed to send verification email to %s", user.email)
 
     async def _send_verification_email(self, email: str, token: str) -> None:
-        frontend_url = FRONTEND_URL
-        verify_url = f"{frontend_url}/verify-email?token={token}"
+        verify_url = f"{settings.frontend_url}/verify-email?token={token}"
         await asyncio.to_thread(
             send_verification_email, to_email=email, verify_url=verify_url
         )

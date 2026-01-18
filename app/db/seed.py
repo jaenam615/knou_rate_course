@@ -12,7 +12,7 @@ from pathlib import Path
 
 from sqlalchemy import select
 
-from app.constants.course_constants import CourseStatus
+from app.constants import CourseStatus
 from app.db.database import AsyncSessionLocal, engine
 from app.models import (Base, Course, CourseOffering, Major, Review, ReviewTag,
                         Tag, TagType, User)

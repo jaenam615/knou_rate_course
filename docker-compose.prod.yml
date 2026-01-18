@@ -1,10 +1,24 @@
+# Production docker-compose override
+# Usage: docker compose -f docker-compose.yml -f docker-compose.prod.yml --env-file .env.prod up -d
+#
+# Create .env.prod with production values before deploying.
+# See .env.example for required variables.
+
 services:
   api:
+    env_file:
+      - .env.prod
     environment:
       DEBUG: "false"
-      JWT_SECRET_KEY: ${JWT_SECRET_KEY:?JWT_SECRET_KEY is required}
-      DATABASE_URL: ${DATABASE_URL:?DATABASE_URL is required}
     restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   db:
+    restart: always
+
+  redis:
     restart: always

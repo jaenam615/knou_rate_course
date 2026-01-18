@@ -1,0 +1,127 @@
+name: CD
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:  # Allow manual trigger
+
+env:
+  AWS_REGION: ap-northeast-2  # Seoul region - change as needed
+  ECR_REPOSITORY: knou-rate-course
+  ECS_SERVICE: knou-rate-course-service
+  ECS_CLUSTER: knou-rate-course-cluster
+  ECS_TASK_DEFINITION: .aws/task-definition.json
+
+jobs:
+  # First run CI checks
+  ci:
+    uses: ./.github/workflows/ci.yml
+
+  deploy:
+    name: Deploy to AWS
+    needs: ci
+    runs-on: ubuntu-latest
+    # Only deploy on main/master branch push (not PRs)
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build, tag, and push image to Amazon ECR
+        id: build-image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+      # Uncomment below for ECS deployment
+      # - name: Fill in the new image ID in the Amazon ECS task definition
+      #   id: task-def
+      #   uses: aws-actions/amazon-ecs-render-task-definition@v1
+      #   with:
+      #     task-definition: ${{ env.ECS_TASK_DEFINITION }}
+      #     container-name: api
+      #     image: ${{ steps.build-image.outputs.image }}
+
+      # - name: Deploy Amazon ECS task definition
+      #   uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      #   with:
+      #     task-definition: ${{ steps.task-def.outputs.task-definition }}
+      #     service: ${{ env.ECS_SERVICE }}
+      #     cluster: ${{ env.ECS_CLUSTER }}
+      #     wait-for-service-stability: true
+
+      - name: Deployment summary
+        run: |
+          echo "## Deployment Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- **Image:** ${{ steps.build-image.outputs.image }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Region:** ${{ env.AWS_REGION }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+
+# =============================================================================
+# AWS SETUP INSTRUCTIONS
+# =============================================================================
+#
+# Before using this workflow, you need to:
+#
+# 1. CREATE ECR REPOSITORY:
+#    aws ecr create-repository --repository-name knou-rate-course --region ap-northeast-2
+#
+# 2. CREATE ECS CLUSTER (if using ECS):
+#    aws ecs create-cluster --cluster-name knou-rate-course-cluster
+#
+# 3. CREATE TASK DEFINITION:
+#    Create .aws/task-definition.json (see example below)
+#
+# 4. CREATE ECS SERVICE:
+#    aws ecs create-service \
+#      --cluster knou-rate-course-cluster \
+#      --service-name knou-rate-course-service \
+#      --task-definition knou-rate-course \
+#      --desired-count 1 \
+#      --launch-type FARGATE \
+#      --network-configuration "awsvpcConfiguration={subnets=[subnet-xxx],securityGroups=[sg-xxx],assignPublicIp=ENABLED}"
+#
+# 5. ADD GITHUB SECRETS:
+#    - AWS_ACCESS_KEY_ID: Your AWS access key
+#    - AWS_SECRET_ACCESS_KEY: Your AWS secret key
+#
+# 6. ENVIRONMENT VARIABLES IN ECS:
+#    Set these in your task definition or Parameter Store:
+#    - DATABASE_URL
+#    - REDIS_URL
+#    - JWT_SECRET_KEY
+#    - SENDGRID_API_KEY
+#    - FRONTEND_URL
+#
+# =============================================================================
+# ALTERNATIVE: Deploy to other platforms
+# =============================================================================
+#
+# For Fly.io:
+#   - name: Deploy to Fly.io
+#     uses: superfly/flyctl-actions/setup-flyctl@master
+#   - run: flyctl deploy --remote-only
+#     env:
+#       FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+#
+# For Render:
+#   - name: Deploy to Render
+#     run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+#
+# =============================================================================

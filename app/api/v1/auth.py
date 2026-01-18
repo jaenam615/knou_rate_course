@@ -1,6 +1,7 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Request, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.core.rate_limit import RATE_LIMIT_AUTH, limiter
 from app.db import get_db
 from app.schemas import (LoginRequest, MessageResponse,
                          ResendVerificationRequest, SignupRequest,
@@ -23,7 +24,9 @@ Authentication and User Management Endpoints
 
 
 @router.post("/signup", response_model=MessageResponse, status_code=201)
+@limiter.limit(RATE_LIMIT_AUTH)
 async def signup(
+    request: Request,
     data: SignupRequest,
     db: AsyncSession = Depends(get_db),
 ) -> MessageResponse:
@@ -42,7 +45,9 @@ async def signup(
 
 
 @router.post("/verify-email", response_model=MessageResponse)
+@limiter.limit(RATE_LIMIT_AUTH)
 async def verify_email(
+    request: Request,
     data: VerifyEmailRequest,
     db: AsyncSession = Depends(get_db),
 ) -> MessageResponse:
@@ -59,7 +64,9 @@ async def verify_email(
 
 
 @router.post("/login", response_model=TokenResponse)
+@limiter.limit(RATE_LIMIT_AUTH)
 async def login(
+    request: Request,
     data: LoginRequest,
     db: AsyncSession = Depends(get_db),
 ) -> TokenResponse:
@@ -77,7 +84,9 @@ async def login(
 
 
 @router.post("/resend-verification", response_model=MessageResponse)
+@limiter.limit(RATE_LIMIT_AUTH)
 async def resend_verification(
+    request: Request,
     data: ResendVerificationRequest,
     db: AsyncSession = Depends(get_db),
 ) -> MessageResponse:
