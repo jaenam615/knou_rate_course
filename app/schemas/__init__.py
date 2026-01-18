@@ -1,17 +1,22 @@
-from app.schemas.major import MajorResponse
-from app.schemas.course import CourseResponse, CourseListResponse, CourseDetailResponse, CourseEvalSummary
-from app.schemas.review import ReviewResponse, ReviewCreate
-from app.schemas.tag import TagResponse
 from app.schemas.auth import (
-    SignupRequest,
     LoginRequest,
+    MessageResponse,
+    ResendVerificationRequest,
+    SignupRequest,
     TokenResponse,
     UserResponse,
-    MessageResponse,
     VerifyEmailRequest,
-    ResendVerificationRequest,
 )
+from app.schemas.course import (
+    CourseDetailResponse,
+    CourseEvalSummary,
+    CourseListResponse,
+    CourseResponse,
+)
+from app.schemas.major import MajorResponse
+from app.schemas.review import ReviewCreate, ReviewResponse
 from app.schemas.search import SearchResult, TrendingItem
+from app.schemas.tag import TagResponse
 
 __all__ = [
     "MajorResponse",

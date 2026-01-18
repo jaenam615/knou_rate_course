@@ -1,8 +1,7 @@
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Boolean
+from sqlalchemy import Boolean, ForeignKey, Index, Integer, SmallInteger, String
 from sqlalchemy import Enum as SAEnum
-from sqlalchemy import ForeignKey, Index, Integer, SmallInteger, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.constants.course import CourseStatus

@@ -9,12 +9,14 @@ from app.config import settings
 from app.constants import AuthConstants
 from app.models import User
 from app.repositories import UserRepository
-from app.services.auth.errors import (EmailAlreadyExistsError,
-                                      EmailNotVerifiedError,
-                                      InvalidCredentialsError,
-                                      InvalidEmailDomainError,
-                                      InvalidVerificationTokenError,
-                                      VerificationTokenExpiredError)
+from app.services.auth.errors import (
+    EmailAlreadyExistsError,
+    EmailNotVerifiedError,
+    InvalidCredentialsError,
+    InvalidEmailDomainError,
+    InvalidVerificationTokenError,
+    VerificationTokenExpiredError,
+)
 from app.services.mailer import send_verification_email
 
 logger = logging.getLogger(__name__)

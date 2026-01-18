@@ -52,3 +52,9 @@ ignore = ["E501"]
 [tool.black]
 line-length = 100
 target-version = ["py312"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "setuptools>=80.9.0",
+]

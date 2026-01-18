@@ -5,10 +5,12 @@ from app.core.rate_limit import RATE_LIMIT_WRITE, limiter
 from app.db import get_db
 from app.schemas import ReviewCreate, ReviewResponse
 from app.services import ReviewService
-from app.services.review.errors import (CourseNotFoundError,
-                                        DuplicateReviewError,
-                                        InvalidReviewTextError,
-                                        TagNotFoundError)
+from app.services.review.errors import (
+    CourseNotFoundError,
+    DuplicateReviewError,
+    InvalidReviewTextError,
+    TagNotFoundError,
+)
 from app.utils import CurrentUser
 
 router = APIRouter()

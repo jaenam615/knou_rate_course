@@ -3,8 +3,13 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.constants import CacheTTL
 from app.models import User
 from app.repositories import CourseRepository, ReviewRepository
-from app.schemas import (CourseDetailResponse, CourseListResponse,
-                         MajorResponse, ReviewResponse, TagResponse)
+from app.schemas import (
+    CourseDetailResponse,
+    CourseListResponse,
+    MajorResponse,
+    ReviewResponse,
+    TagResponse,
+)
 from app.services.cache import RedisCache
 
 

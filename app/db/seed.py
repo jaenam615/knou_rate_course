@@ -14,8 +14,7 @@ from sqlalchemy import select
 
 from app.constants import CourseStatus
 from app.db.database import AsyncSessionLocal, engine
-from app.models import (Base, Course, CourseOffering, Major, Review, ReviewTag,
-                        Tag, TagType, User)
+from app.models import Base, Course, CourseOffering, Major, Review, ReviewTag, Tag, TagType, User
 
 EVAL_TAGS = [
     "기말시험",

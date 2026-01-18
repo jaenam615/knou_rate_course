@@ -12,7 +12,7 @@ from app.config import settings
 from app.core.middleware import SecurityHeadersMiddleware
 from app.core.rate_limit import limiter
 from app.db import engine
-from app.db.redis import get_redis, close_redis
+from app.db.redis import close_redis, get_redis
 from app.models import Base
 
 logger = logging.getLogger(__name__)

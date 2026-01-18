@@ -5,12 +5,10 @@ Search and Trending API endpoints.
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, Query, Request
-from redis import Redis
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.rate_limit import RATE_LIMIT_SEARCH, limiter
 from app.db import get_db
-from app.db.redis import get_redis
 from app.deps.cache import get_cache
 from app.repositories import CourseRepository
 from app.schemas import SearchResult, TrendingItem

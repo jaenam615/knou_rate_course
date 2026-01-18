@@ -1,4 +1,4 @@
-from sqlalchemy import case, func, literal, select
+from sqlalchemy import case, func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
@@ -28,7 +28,7 @@ class CourseRepository(BaseRepository[Course]):
                 func.count(Review.id).label("review_count"),
                 func.max(Review.created_at).label("latest_review"),
             )
-            .where(Review.is_hidden == False)
+            .where(Review.is_hidden.is_(False))
             .group_by(Review.course_id)
             .subquery()
         )
@@ -46,7 +46,7 @@ class CourseRepository(BaseRepository[Course]):
             )
             .join(Major, Course.major_id == Major.id)
             .outerjoin(review_stats, Course.id == review_stats.c.course_id)
-            .where(Course.is_archived == False)
+            .where(Course.is_archived.is_(False))
         )
 
         if major_id:
@@ -70,15 +70,11 @@ class CourseRepository(BaseRepository[Course]):
                 "course_code": row.course_code,
                 "name": row.name,
                 "major_name": row.major_name,
-                "avg_rating": (
-                    round(float(row.avg_rating), 2) if row.avg_rating else None
-                ),
+                "avg_rating": (round(float(row.avg_rating), 2) if row.avg_rating else None),
                 "avg_difficulty": (
                     round(float(row.avg_difficulty), 2) if row.avg_difficulty else None
                 ),
-                "avg_workload": (
-                    round(float(row.avg_workload), 2) if row.avg_workload else None
-                ),
+                "avg_workload": (round(float(row.avg_workload), 2) if row.avg_workload else None),
                 "review_count": row.review_count,
             }
             for row in result.all()
@@ -87,9 +83,7 @@ class CourseRepository(BaseRepository[Course]):
     async def get_detail_with_stats(self, course_id: int) -> dict | None:
         # Get course with major
         result = await self.db.execute(
-            select(Course)
-            .options(selectinload(Course.major))
-            .where(Course.id == course_id)
+            select(Course).options(selectinload(Course.major)).where(Course.id == course_id)
         )
         course = result.scalar_one_or_none()
         if not course:
@@ -104,21 +98,17 @@ class CourseRepository(BaseRepository[Course]):
                 func.count(Review.id).label("review_count"),
             )
             .where(Review.course_id == course_id)
-            .where(Review.is_hidden == False)
+            .where(Review.is_hidden.is_(False))
         )
         stats = stats_result.one()
 
         return {
             "course": course,
-            "avg_rating": (
-                round(float(stats.avg_rating), 2) if stats.avg_rating else None
-            ),
+            "avg_rating": (round(float(stats.avg_rating), 2) if stats.avg_rating else None),
             "avg_difficulty": (
                 round(float(stats.avg_difficulty), 2) if stats.avg_difficulty else None
             ),
-            "avg_workload": (
-                round(float(stats.avg_workload), 2) if stats.avg_workload else None
-            ),
+            "avg_workload": (round(float(stats.avg_workload), 2) if stats.avg_workload else None),
             "review_count": stats.review_count or 0,
         }
 
@@ -135,7 +125,7 @@ class CourseRepository(BaseRepository[Course]):
                 Major.name.label("major_name"),
             )
             .join(Major, Course.major_id == Major.id)
-            .where(Course.is_archived == False)
+            .where(Course.is_archived.is_(False))
             .where(Course.name.ilike(f"%{q}%"))
             .order_by(Course.name)
             .limit(limit)
@@ -158,18 +148,10 @@ class CourseRepository(BaseRepository[Course]):
         Returns which final type is dominant and whether midterm/attendance exist.
         """
         # Count each tag type
-        final_exam_count = func.sum(
-            case((Tag.name == "기말시험", 1), else_=0)
-        )
-        final_assignment_count = func.sum(
-            case((Tag.name == "기말과제물", 1), else_=0)
-        )
-        midterm_count = func.sum(
-            case((Tag.name == "중간과제물", 1), else_=0)
-        )
-        attendance_count = func.sum(
-            case((Tag.name == "출석수업과제", 1), else_=0)
-        )
+        final_exam_count = func.sum(case((Tag.name == "기말시험", 1), else_=0))
+        final_assignment_count = func.sum(case((Tag.name == "기말과제물", 1), else_=0))
+        midterm_count = func.sum(case((Tag.name == "중간과제물", 1), else_=0))
+        attendance_count = func.sum(case((Tag.name == "출석수업과제", 1), else_=0))
 
         query = (
             select(
@@ -182,7 +164,7 @@ class CourseRepository(BaseRepository[Course]):
             .outerjoin(ReviewTag, Review.id == ReviewTag.review_id)
             .outerjoin(Tag, ReviewTag.tag_id == Tag.id)
             .where(Review.course_id == course_id)
-            .where(Review.is_hidden == False)
+            .where(Review.is_hidden.is_(False))
         )
 
         result = await self.db.execute(query)

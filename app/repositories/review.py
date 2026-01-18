@@ -15,7 +15,7 @@ class ReviewRepository(BaseRepository[Review]):
             select(Review)
             .options(selectinload(Review.tags).selectinload(ReviewTag.tag))
             .where(Review.course_id == course_id)
-            .where(Review.is_hidden == False)
+            .where(Review.is_hidden.is_(False))
             .order_by(Review.created_at.desc())
         )
         return list(result.scalars().all())

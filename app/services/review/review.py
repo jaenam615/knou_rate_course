@@ -2,13 +2,14 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.profanity_filter import ProfanityFilter
 from app.models import User
-from app.repositories import (CourseRepository, ReviewRepository,
-                              TagRepository, UserRepository)
+from app.repositories import CourseRepository, ReviewRepository, TagRepository, UserRepository
 from app.schemas import ReviewCreate, ReviewResponse
-from app.services.review.errors import (CourseNotFoundError,
-                                        DuplicateReviewError,
-                                        InvalidReviewTextError,
-                                        TagNotFoundError)
+from app.services.review.errors import (
+    CourseNotFoundError,
+    DuplicateReviewError,
+    InvalidReviewTextError,
+    TagNotFoundError,
+)
 
 
 class ReviewService:
