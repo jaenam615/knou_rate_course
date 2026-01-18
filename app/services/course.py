@@ -1,5 +1,6 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.constants.cache_constants import CacheConstants
 from app.models import User
 from app.repositories import CourseRepository, ReviewRepository
 from app.schemas import (CourseDetailResponse, CourseListResponse,
@@ -22,7 +23,7 @@ class CourseService:
         limit: int = 20,
         offset: int = 0,
     ) -> list[CourseListResponse]:
-        should_cache = q is None
+        should_cache = not q
 
         async def _load_course_list() -> list[dict]:
             return await self.course_repo.get_list_with_stats(
@@ -37,12 +38,14 @@ class CourseService:
             rows = await _load_course_list()
         else:
             try:
+                major_key = major_id if major_id is not None else "all"
+                key = f"courses:list:v1:major={major_key}:sort={sort}:limit={limit}:offset={offset}"
                 rows = await self.cache.get_or_set_json(
-                    key=f"courses:list:v1:major={major_id}:sort={sort}:limit={limit}:offset={offset}",
-                    ttl=300,
+                    key=key,
+                    ttl=CacheConstants.DEFAULT_TIMEOUT,
                     loader=_load_course_list,
                 )
-            except:
+            except Exception:
                 rows = await _load_course_list()
 
         if user.has_full_access:
