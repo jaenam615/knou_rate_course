@@ -5,6 +5,7 @@ class Settings(BaseSettings):
     database_url: str = (
         "postgresql+asyncpg://postgres:postgres@localhost:5432/knou_rate_course"
     )
+    redis_url: str = "redis://localhost:6379"
     debug: bool = False
 
     # JWT

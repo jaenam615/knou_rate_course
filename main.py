@@ -6,16 +6,18 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api import api_router
 from app.config import settings
 from app.db import engine
+from app.db.redis import close_redis
 from app.models import Base
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Create tables on startup (dev only - use migrations in prod)
     if settings.debug:
         async with engine.begin() as conn:
             await conn.run_sync(Base.metadata.create_all)
     yield
+    # Cleanup
+    await close_redis()
 
 
 app = FastAPI(
@@ -53,7 +55,7 @@ KNOU 학생들이 수강신청 시 **꿀과목**을 빠르게 찾을 수 있도�
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Configure properly in production
+    allow_origins=["*"],  # TODO: restrict in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -1,43 +1,24 @@
 import asyncio
+import os
 import secrets
 from datetime import UTC, datetime, timedelta
+from venv import logger
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models import User
 from app.repositories import UserRepository
+from app.services.auth.errors import (EmailAlreadyExistsError,
+                                      EmailNotVerifiedError,
+                                      InvalidCredentialsError,
+                                      InvalidEmailDomainError,
+                                      InvalidVerificationTokenError,
+                                      VerificationTokenExpiredError)
 from app.services.mailer import send_verification_email
 
 KNOU_EMAIL_DOMAIN = "@knou.ac.kr"
 VERIFICATION_TOKEN_EXPIRY_HOURS = 24
-
-
-class AuthServiceError(Exception):
-    pass
-
-
-class InvalidEmailDomainError(AuthServiceError):
-    pass
-
-
-class EmailAlreadyExistsError(AuthServiceError):
-    pass
-
-
-class InvalidCredentialsError(AuthServiceError):
-    pass
-
-
-class EmailNotVerifiedError(AuthServiceError):
-    pass
-
-
-class InvalidVerificationTokenError(AuthServiceError):
-    pass
-
-
-class VerificationTokenExpiredError(AuthServiceError):
-    pass
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:3000")
 
 
 class AuthService:
@@ -120,12 +101,14 @@ class AuthService:
         try:
             await self._send_verification_email(user.email, token)
         except Exception:
+            logger.exception("Failed to send verification email")
             pass
 
     async def _send_verification_email(self, email: str, token: str) -> None:
-        verify_url = f"{self.settings.FRONTEND_URL}/verify-email?token={token}"
+        frontend_url = FRONTEND_URL
+        verify_url = f"{frontend_url}/verify-email?token={token}"
         await asyncio.to_thread(
-            send_verification_email(to_email=email, verify_url=verify_url)
+            send_verification_email, to_email=email, verify_url=verify_url
         )
 
     async def verify_email(self, token: str) -> User:
@@ -134,10 +117,9 @@ class AuthService:
         if not user:
             raise InvalidVerificationTokenError("Invalid verification token")
 
-        if user.verification_token_expires < datetime.utcnow():
+        if user.verification_token_expires < datetime.now(UTC):
             raise VerificationTokenExpiredError("Verification token has expired")
 
-        # Update user
         await self.user_repo.update(
             user,
             is_verified=True,

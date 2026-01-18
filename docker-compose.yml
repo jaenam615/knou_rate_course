@@ -15,17 +15,36 @@ services:
       timeout: 5s
       retries: 5
 
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
   api:
     build: .
     ports:
       - "8000:8000"
     environment:
       DATABASE_URL: postgresql+asyncpg://postgres:postgres@db:5432/knou_rate_course
+      REDIS_URL: redis://redis:6379
       DEBUG: "true"
       JWT_SECRET_KEY: local-dev-secret-change-in-prod
+      SENDGRID_API_KEY: local_email_key
+      FROM_EMAIL: no-reply@knouhoney.com
+      FRONTEND_URL: http://localhost:3000
     depends_on:
       db:
+        condition: service_healthy
+      redis:
         condition: service_healthy
 
 volumes:
   postgres_data:
+  redis_data:

@@ -69,3 +69,26 @@ async def get_current_user(
 
 
 CurrentUser = Annotated[User, Depends(get_current_user)]
+
+
+class InsufficientReviewsError(Exception):
+    """Raised when user doesn't have enough reviews for full access."""
+
+    pass
+
+
+async def get_current_user_with_full_access(
+    credentials: Annotated[HTTPAuthorizationCredentials, Depends(security)],
+    db: Annotated[AsyncSession, Depends(get_db)],
+) -> User:
+    """Get current user and verify they have full access (3+ reviews)."""
+    user = await get_current_user(credentials, db)
+    if not user.has_full_access:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail=f"Write {3 - user.review_count} more review(s) to unlock full access",
+        )
+    return user
+
+
+CurrentUserWithFullAccess = Annotated[User, Depends(get_current_user_with_full_access)]

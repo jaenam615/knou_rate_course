@@ -5,12 +5,14 @@ from app.db import get_db
 from app.schemas import (LoginRequest, MessageResponse,
                          ResendVerificationRequest, SignupRequest,
                          TokenResponse, UserResponse, VerifyEmailRequest)
-from app.services import AuthService
-from app.services.auth import (AuthServiceError, EmailAlreadyExistsError,
-                               EmailNotVerifiedError, InvalidCredentialsError,
-                               InvalidEmailDomainError,
-                               InvalidVerificationTokenError,
-                               VerificationTokenExpiredError)
+from app.services.auth.auth import AuthService
+from app.services.auth.errors import (AuthServiceError,
+                                      EmailAlreadyExistsError,
+                                      EmailNotVerifiedError,
+                                      InvalidCredentialsError,
+                                      InvalidEmailDomainError,
+                                      InvalidVerificationTokenError,
+                                      VerificationTokenExpiredError)
 from app.utils import CurrentUser, create_access_token
 
 router = APIRouter()
@@ -64,7 +66,7 @@ async def login(
     auth_service = AuthService(db)
 
     try:
-        user = await auth_service.login(data.email, data.password)
+        user = await auth_service.login(str(data.email), data.password)
     except InvalidCredentialsError as e:
         raise HTTPException(status_code=401, detail=str(e))
     except EmailNotVerifiedError as e:
@@ -82,7 +84,7 @@ async def resend_verification(
     auth_service = AuthService(db)
 
     try:
-        user, token = await auth_service.resend_verification(data.email)
+        user = await auth_service.resend_verification(str(data.email))
     except InvalidCredentialsError as e:
         raise HTTPException(status_code=404, detail=str(e))
     except AuthServiceError as e:

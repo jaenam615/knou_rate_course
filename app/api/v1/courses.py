@@ -7,6 +7,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.db import get_db
 from app.schemas import CourseListResponse, CourseDetailResponse
 from app.services import CourseService
+from app.utils import CurrentUser
 
 router = APIRouter()
 
@@ -19,6 +20,7 @@ class SortOption(str, Enum):
 
 @router.get("", response_model=list[CourseListResponse])
 async def get_courses(
+    current_user: CurrentUser,
     db: AsyncSession = Depends(get_db),
     major_id: Annotated[int | None, Query(description="Filter by major")] = None,
     q: Annotated[str | None, Query(description="Search query")] = None,
@@ -30,17 +32,23 @@ async def get_courses(
 ) -> list[CourseListResponse]:
     service = CourseService(db)
     return await service.get_list(
-        major_id=major_id, q=q, sort=sort.value, limit=limit, offset=offset
+        user=current_user,
+        major_id=major_id,
+        q=q,
+        sort=sort.value,
+        limit=limit,
+        offset=offset,
     )
 
 
 @router.get("/{course_id}", response_model=CourseDetailResponse)
 async def get_course(
     course_id: int,
+    current_user: CurrentUser,
     db: AsyncSession = Depends(get_db),
 ) -> CourseDetailResponse:
     service = CourseService(db)
-    result = await service.get_detail(course_id)
+    result = await service.get_detail(course_id, current_user)
 
     if not result:
         raise HTTPException(status_code=404, detail="Course not found")

@@ -14,17 +14,8 @@ from sqlalchemy import select
 
 from app.constants.course_constants import CourseStatus
 from app.db.database import AsyncSessionLocal, engine
-from app.models import (
-    Base,
-    Course,
-    CourseOffering,
-    Major,
-    Review,
-    ReviewTag,
-    Tag,
-    TagType,
-    User,
-)
+from app.models import (Base, Course, CourseOffering, Major, Review, ReviewTag,
+                        Tag, TagType, User)
 
 EVAL_TAGS = [
     "기말시험",
@@ -33,7 +24,9 @@ EVAL_TAGS = [
     "출석수업",
 ]
 
-FREEFORM_TAGS = []
+FREEFORM_TAGS = [
+    "기출많음",
+]
 
 # Department (college) mapping for majors
 MAJOR_DEPARTMENTS = {
@@ -214,11 +207,12 @@ async def seed_database():
         print(f"Added {course_count} courses")
         print(f"Added {offering_count} course offerings")
 
-        # Create a test user for sample reviews
+        # Create a test user for sample reviews (with full access)
         test_user = User(
             email="test@knou.ac.kr",
             password_hash="$2b$12$test_hash_not_for_login",  # Not a real password
             is_verified=True,
+            review_count=3,  # Grant full access
         )
         db.add(test_user)
         await db.flush()
@@ -252,15 +246,11 @@ async def seed_database():
 
             # Add tags to first sample review
             tag_기출많음 = tags["기출많음"]
-            tag_점수잘줌 = tags["점수잘줌"]
             tag_기말시험 = tags["기말시험"]
 
             if sample_reviews:
                 db.add(
                     ReviewTag(review_id=sample_reviews[0].id, tag_id=tag_기출많음.id)
-                )
-                db.add(
-                    ReviewTag(review_id=sample_reviews[0].id, tag_id=tag_점수잘줌.id)
                 )
                 db.add(
                     ReviewTag(review_id=sample_reviews[0].id, tag_id=tag_기말시험.id)

@@ -120,3 +120,33 @@ class CourseRepository(BaseRepository[Course]):
             ),
             "review_count": stats.review_count or 0,
         }
+
+    async def search(self, q: str, limit: int = 20) -> list[dict]:
+        """
+        Simple search for courses by name.
+        Returns minimal data for search results.
+        """
+        query = (
+            select(
+                Course.id,
+                Course.course_code,
+                Course.name,
+                Major.name.label("major_name"),
+            )
+            .join(Major, Course.major_id == Major.id)
+            .where(Course.is_archived == False)
+            .where(Course.name.ilike(f"%{q}%"))
+            .order_by(Course.name)
+            .limit(limit)
+        )
+
+        result = await self.db.execute(query)
+        return [
+            {
+                "id": row.id,
+                "course_code": row.course_code,
+                "name": row.name,
+                "major_name": row.major_name,
+            }
+            for row in result.all()
+        ]

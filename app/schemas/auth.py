@@ -20,6 +20,8 @@ class UserResponse(BaseModel):
     id: int
     email: str
     is_verified: bool
+    review_count: int
+    has_full_access: bool
 
     class Config:
         from_attributes = True

@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models import User
-from app.repositories import CourseRepository, ReviewRepository, TagRepository
+from app.repositories import CourseRepository, ReviewRepository, TagRepository, UserRepository
 from app.schemas import ReviewCreate, ReviewResponse
 
 
@@ -26,6 +26,7 @@ class ReviewService:
         self.review_repo = ReviewRepository(db)
         self.course_repo = CourseRepository(db)
         self.tag_repo = TagRepository(db)
+        self.user_repo = UserRepository(db)
 
     async def create_review(
         self, course_id: int, user: User, data: ReviewCreate
@@ -55,6 +56,9 @@ class ReviewService:
             workload=data.workload,
             text=data.text,
         )
+
+        # Increment user's review count
+        await self.user_repo.update(user, review_count=user.review_count + 1)
 
         # Add tags
         if data.tag_ids:

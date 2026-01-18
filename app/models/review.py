@@ -1,7 +1,8 @@
-from datetime import datetime
+from datetime import UTC, datetime
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Boolean, DateTime, ForeignKey, Integer, SmallInteger, Text
+from sqlalchemy import (Boolean, DateTime, ForeignKey, Integer, SmallInteger,
+                        Text)
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.models.base import Base
@@ -22,7 +23,7 @@ class Review(Base):
     difficulty: Mapped[int] = mapped_column(SmallInteger, nullable=False)  # 1-5
     workload: Mapped[int] = mapped_column(SmallInteger, nullable=False)  # 1-5
     text: Mapped[str] = mapped_column(Text, nullable=False)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=datetime.now(UTC))
     is_hidden: Mapped[bool] = mapped_column(Boolean, default=False)
 
     course: Mapped["Course"] = relationship(back_populates="reviews")

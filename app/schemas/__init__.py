@@ -11,6 +11,7 @@ from app.schemas.auth import (
     VerifyEmailRequest,
     ResendVerificationRequest,
 )
+from app.schemas.search import SearchResult, TrendingItem
 
 __all__ = [
     "MajorResponse",
@@ -27,4 +28,6 @@ __all__ = [
     "MessageResponse",
     "VerifyEmailRequest",
     "ResendVerificationRequest",
+    "SearchResult",
+    "TrendingItem",
 ]
