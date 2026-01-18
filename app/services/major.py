@@ -1,6 +1,5 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.db import get_redis
 from app.repositories import MajorRepository
 from app.schemas import MajorResponse
 from app.services.cache import RedisCache

@@ -1,7 +1,16 @@
+from typing import Literal
+
 from pydantic import BaseModel
 
 from app.schemas.major import MajorResponse
 from app.schemas.review import ReviewResponse
+
+
+class CourseEvalSummary(BaseModel):
+    """Aggregated evaluation method summary for a course."""
+    final_type: Literal["기말시험", "기말과제물"] | None
+    has_midterm: bool
+    has_attendance: bool
 
 
 class CourseResponse(BaseModel):

@@ -234,3 +234,73 @@ Frontend has two features that need backend support:
 |----------|------|-------------|
 | `GET /search?q=` | Required | Search courses, logs to trending |
 | `GET /trending` | None | Top 10 trending searches |
+
+---
+
+## 7. Course Evaluation Summary (Aggregated Tags)
+
+**Date:** 2025-01
+
+**Context:**
+Tags are bound to individual reviews, but we want to display course-level evaluation info:
+- Is the final exam-based (기말시험) or assignment-based (기말과제물)?
+- Does it have midterm assignments (중간과제물)?
+- Does it have attendance assignments (출석수업과제)?
+
+### Decision: Store as Column or Compute via Query?
+
+**Concern:** "I don't want to add a column to the DB because it would be updated far too often."
+
+**Options considered:**
+
+| Approach | Pros | Cons |
+|----------|------|------|
+| Denormalized column | Fast reads | Updated on every review create/update/delete |
+| GROUP BY query | Always accurate, no sync | Query overhead |
+| Cache the GROUP BY | Fast + accurate | Extra complexity |
+
+**Decision:** Use GROUP BY query (compute on-the-fly).
+
+**Reasoning:**
+- Query is simple and uses indexed columns
+- For single course detail, overhead is negligible
+- No sync issues or stale data
+- Can add Redis caching later if needed
+
+### Decision: Threshold for Tag Counts
+
+**Concern:** "I don't want just a single review making something appear."
+
+**Decision:** Require more than 3 reviews for `has_midterm` and `has_attendance` to be true.
+
+**Logic:**
+```sql
+-- Final type: winner between 기말시험 vs 기말과제물
+CASE
+  WHEN count(기말시험) > count(기말과제물) THEN '기말시험'
+  WHEN count(기말과제물) > 0 THEN '기말과제물'
+  ELSE NULL
+END
+
+-- Midterm/Attendance: need > 3 reviews to count
+has_midterm = count(중간과제물) > 3
+has_attendance = count(출석수업과제) > 3
+```
+
+### Implementation
+
+**New endpoint:** `GET /courses/{id}/eval-summary`
+
+**Response:**
+```json
+{
+  "final_type": "기말시험",
+  "has_midterm": true,
+  "has_attendance": false
+}
+```
+
+**Files changed:**
+- `app/schemas/course.py` - Added `CourseEvalSummary`
+- `app/repositories/course.py` - Added `get_eval_summary()` method
+- `app/api/v1/courses.py` - Added endpoint

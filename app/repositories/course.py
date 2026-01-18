@@ -1,9 +1,12 @@
-from sqlalchemy import func, select
+from sqlalchemy import case, func, literal, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from app.models import Course, Major, Review
+from app.models import Course, Major, Review, ReviewTag, Tag
 from app.repositories.base import BaseRepository
+
+# Threshold for eval summary (need more than this many reviews to count)
+EVAL_TAG_THRESHOLD = 3
 
 
 class CourseRepository(BaseRepository[Course]):
@@ -150,3 +153,58 @@ class CourseRepository(BaseRepository[Course]):
             }
             for row in result.all()
         ]
+
+    async def get_eval_summary(self, course_id: int) -> dict:
+        """
+        Get aggregated evaluation method summary for a course.
+        Returns which final type is dominant and whether midterm/attendance exist.
+        """
+        # Count each tag type
+        final_exam_count = func.sum(
+            case((Tag.name == "기말시험", 1), else_=0)
+        )
+        final_assignment_count = func.sum(
+            case((Tag.name == "기말과제물", 1), else_=0)
+        )
+        midterm_count = func.sum(
+            case((Tag.name == "중간과제물", 1), else_=0)
+        )
+        attendance_count = func.sum(
+            case((Tag.name == "출석수업과제", 1), else_=0)
+        )
+
+        query = (
+            select(
+                final_exam_count.label("final_exam_count"),
+                final_assignment_count.label("final_assignment_count"),
+                midterm_count.label("midterm_count"),
+                attendance_count.label("attendance_count"),
+            )
+            .select_from(Review)
+            .outerjoin(ReviewTag, Review.id == ReviewTag.review_id)
+            .outerjoin(Tag, ReviewTag.tag_id == Tag.id)
+            .where(Review.course_id == course_id)
+            .where(Review.is_hidden == False)
+        )
+
+        result = await self.db.execute(query)
+        row = result.one()
+
+        final_exam = row.final_exam_count or 0
+        final_assignment = row.final_assignment_count or 0
+        midterm = row.midterm_count or 0
+        attendance = row.attendance_count or 0
+
+        # Determine final type (winner between 기말시험 vs 기말과제물)
+        if final_exam > final_assignment:
+            final_type = "기말시험"
+        elif final_assignment > 0:
+            final_type = "기말과제물"
+        else:
+            final_type = None
+
+        return {
+            "final_type": final_type,
+            "has_midterm": midterm > EVAL_TAG_THRESHOLD,
+            "has_attendance": attendance > EVAL_TAG_THRESHOLD,
+        }

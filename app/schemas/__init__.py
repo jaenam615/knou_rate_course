@@ -1,5 +1,5 @@
 from app.schemas.major import MajorResponse
-from app.schemas.course import CourseResponse, CourseListResponse, CourseDetailResponse
+from app.schemas.course import CourseResponse, CourseListResponse, CourseDetailResponse, CourseEvalSummary
 from app.schemas.review import ReviewResponse, ReviewCreate
 from app.schemas.tag import TagResponse
 from app.schemas.auth import (
@@ -18,6 +18,7 @@ __all__ = [
     "CourseResponse",
     "CourseListResponse",
     "CourseDetailResponse",
+    "CourseEvalSummary",
     "ReviewResponse",
     "ReviewCreate",
     "TagResponse",
