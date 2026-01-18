@@ -1,15 +1,14 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.utils import CurrentUser
 from app.db import get_db
 from app.schemas import ReviewCreate, ReviewResponse
 from app.services import ReviewService
-from app.services.review import (
-    CourseNotFoundError,
-    TagNotFoundError,
-    DuplicateReviewError,
-)
+from app.services.review.errors import (CourseNotFoundError,
+                                        DuplicateReviewError,
+                                        InvalidReviewTextError,
+                                        TagNotFoundError)
+from app.utils import CurrentUser
 
 router = APIRouter()
 
@@ -27,6 +26,8 @@ async def create_review(
 
     try:
         return await service.create_review(course_id, current_user, review_data)
+    except InvalidReviewTextError as e:
+        raise HTTPException(status_code=400, detail=str(e))
     except CourseNotFoundError:
         raise HTTPException(status_code=404, detail="Course not found")
     except TagNotFoundError as e:
