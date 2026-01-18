@@ -2,13 +2,16 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models import User
 from app.repositories import CourseRepository, ReviewRepository
-from app.schemas import CourseDetailResponse, CourseListResponse, MajorResponse
+from app.schemas import (CourseDetailResponse, CourseListResponse,
+                         MajorResponse, ReviewResponse, TagResponse)
+from app.services.cache import RedisCache
 
 
 class CourseService:
-    def __init__(self, db: AsyncSession):
+    def __init__(self, db: AsyncSession, cache: RedisCache):
         self.course_repo = CourseRepository(db)
         self.review_repo = ReviewRepository(db)
+        self.cache = cache
 
     async def get_list(
         self,
@@ -19,14 +22,32 @@ class CourseService:
         limit: int = 20,
         offset: int = 0,
     ) -> list[CourseListResponse]:
-        rows = await self.course_repo.get_list_with_stats(
-            major_id=major_id, q=q, sort=sort, limit=limit, offset=offset
-        )
+        should_cache = q is None
+
+        async def _load_course_list() -> list[dict]:
+            return await self.course_repo.get_list_with_stats(
+                major_id=major_id,
+                q=q,
+                sort=sort,
+                limit=limit,
+                offset=offset,
+            )
+
+        if not should_cache:
+            rows = await _load_course_list()
+        else:
+            try:
+                rows = await self.cache.get_or_set_json(
+                    key=f"courses:list:v1:major={major_id}:sort={sort}:limit={limit}:offset={offset}",
+                    ttl=300,
+                    loader=_load_course_list,
+                )
+            except:
+                rows = await _load_course_list()
 
         if user.has_full_access:
             return [CourseListResponse(**row) for row in rows]
 
-        # Hide ratings for users without full access
         return [
             CourseListResponse(
                 id=row["id"],
@@ -41,14 +62,15 @@ class CourseService:
             for row in rows
         ]
 
-    async def get_detail(self, course_id: int, user: User) -> CourseDetailResponse | None:
+    async def get_detail(
+        self, course_id: int, user: User
+    ) -> CourseDetailResponse | None:
         data = await self.course_repo.get_detail_with_stats(course_id)
         if not data:
             return None
 
         course = data["course"]
 
-        # Base response without sensitive data
         base_response = {
             "id": course.id,
             "course_code": course.course_code,
@@ -63,7 +85,6 @@ class CourseService:
         }
 
         if not user.has_full_access:
-            # Hide ratings and reviews for users without full access
             return CourseDetailResponse(
                 **base_response,
                 avg_rating=None,
@@ -72,22 +93,21 @@ class CourseService:
                 reviews=[],
             )
 
-        # Full access: include ratings and reviews
         reviews = await self.review_repo.get_by_course_id(course_id)
         reviews_data = [
-            {
-                "id": review.id,
-                "course_id": review.course_id,
-                "rating_overall": review.rating_overall,
-                "difficulty": review.difficulty,
-                "workload": review.workload,
-                "text": review.text,
-                "created_at": review.created_at,
-                "tags": [
-                    {"id": rt.tag.id, "name": rt.tag.name, "type": rt.tag.type}
+            ReviewResponse(
+                id=review.id,
+                course_id=review.course_id,
+                rating_overall=review.rating_overall,
+                difficulty=review.difficulty,
+                workload=review.workload,
+                text=review.text,
+                created_at=review.created_at,
+                tags=[
+                    TagResponse(id=rt.tag.id, name=rt.tag.name, type=rt.tag.type)
                     for rt in review.tags
                 ],
-            }
+            )
             for review in reviews
         ]
 

@@ -6,7 +6,6 @@ import redis.asyncio as redis
 
 from app.config import settings
 
-# Global redis client
 _redis_client: redis.Redis | None = None
 
 

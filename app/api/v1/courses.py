@@ -5,8 +5,10 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db import get_db
-from app.schemas import CourseListResponse, CourseDetailResponse
+from app.deps.cache import get_cache
+from app.schemas import CourseDetailResponse, CourseListResponse
 from app.services import CourseService
+from app.services.cache import RedisCache
 from app.utils import CurrentUser
 
 router = APIRouter()
@@ -22,6 +24,7 @@ class SortOption(str, Enum):
 async def get_courses(
     current_user: CurrentUser,
     db: AsyncSession = Depends(get_db),
+    cache: RedisCache = Depends(get_cache),
     major_id: Annotated[int | None, Query(description="Filter by major")] = None,
     q: Annotated[str | None, Query(description="Search query")] = None,
     sort: Annotated[
@@ -30,7 +33,7 @@ async def get_courses(
     limit: Annotated[int, Query(ge=1, le=100)] = 20,
     offset: Annotated[int, Query(ge=0)] = 0,
 ) -> list[CourseListResponse]:
-    service = CourseService(db)
+    service = CourseService(db=db, cache=cache)
     return await service.get_list(
         user=current_user,
         major_id=major_id,

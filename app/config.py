@@ -8,10 +8,9 @@ class Settings(BaseSettings):
     redis_url: str = "redis://localhost:6379"
     debug: bool = False
 
-    # JWT
     jwt_secret_key: str = "change-me-in-production"
     jwt_algorithm: str = "HS256"
-    jwt_access_token_expire_minutes: int = 60 * 24 * 7  # 7 days
+    jwt_access_token_expire_minutes: int = 60 * 24 * 7
 
     class Config:
         env_file = ".env"
