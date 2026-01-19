@@ -1,5 +1,6 @@
 """Unit tests for ReviewService."""
 
+from datetime import datetime
 from unittest.mock import AsyncMock
 
 import pytest
@@ -78,6 +79,7 @@ class TestCreateReview:
             workload=3,
             text="좋은 강의입니다. 추천합니다!",
             tags=[],
+            created_at=datetime.now(),
         )
         review_service.user_repo.increment_review_count = AsyncMock()
 

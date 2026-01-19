@@ -2,10 +2,21 @@
 
 import asyncio
 from collections.abc import AsyncGenerator
+from pathlib import Path
+
+# Load .env.example (or .env) BEFORE importing app modules
+from dotenv import load_dotenv
+
+env_file = Path(__file__).parent.parent / ".env.example"
+if not env_file.exists():
+    env_file = Path(__file__).parent.parent / ".env"
+load_dotenv(env_file)
 
 import pytest
+import pytest_asyncio
 from httpx import ASGITransport, AsyncClient
-from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
+from sqlalchemy.ext.asyncio import (AsyncSession, async_sessionmaker,
+                                    create_async_engine)
 
 from app.config import settings
 from app.db import get_db
@@ -21,7 +32,7 @@ def event_loop():
     loop.close()
 
 
-@pytest.fixture(scope="session")
+@pytest_asyncio.fixture(scope="session")
 async def test_engine():
     """Create test database engine."""
     engine = create_async_engine(settings.database_url, echo=False)
@@ -37,7 +48,7 @@ async def test_engine():
     await engine.dispose()
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def db_session(test_engine) -> AsyncGenerator[AsyncSession, None]:
     """Create a fresh database session for each test."""
     async_session = async_sessionmaker(
@@ -49,7 +60,7 @@ async def db_session(test_engine) -> AsyncGenerator[AsyncSession, None]:
         await session.rollback()
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def client(db_session: AsyncSession) -> AsyncGenerator[AsyncClient, None]:
     """Create test client with overridden database dependency."""
 
