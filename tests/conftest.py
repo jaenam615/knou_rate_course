@@ -1,28 +1,23 @@
 """Pytest configuration and fixtures."""
-
 import asyncio
 from collections.abc import AsyncGenerator
 from pathlib import Path
 
-# Load .env.example (or .env) BEFORE importing app modules
-from dotenv import load_dotenv
-
-env_file = Path(__file__).parent.parent / ".env.example"
-if not env_file.exists():
-    env_file = Path(__file__).parent.parent / ".env"
-load_dotenv(env_file)
-
 import pytest
 import pytest_asyncio
+from dotenv import load_dotenv
 from httpx import ASGITransport, AsyncClient
-from sqlalchemy.ext.asyncio import (AsyncSession, async_sessionmaker,
-                                    create_async_engine)
+from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
 from app.config import settings
 from app.db import get_db
 from app.models import Base
 from main import app
 
+env_file = Path(__file__).parent.parent / ".env.example"
+if not env_file.exists():
+    env_file = Path(__file__).parent.parent / ".env"
+load_dotenv(env_file)
 
 @pytest.fixture(scope="session")
 def event_loop():
