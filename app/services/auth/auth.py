@@ -9,14 +9,12 @@ from app.config import settings
 from app.constants import AuthConstants
 from app.models import User
 from app.repositories import UserRepository
-from app.services.auth.errors import (
-    EmailAlreadyExistsError,
-    EmailNotVerifiedError,
-    InvalidCredentialsError,
-    InvalidEmailDomainError,
-    InvalidVerificationTokenError,
-    VerificationTokenExpiredError,
-)
+from app.services.auth.errors import (EmailAlreadyExistsError,
+                                      EmailNotVerifiedError,
+                                      InvalidCredentialsError,
+                                      InvalidEmailDomainError,
+                                      InvalidVerificationTokenError,
+                                      VerificationTokenExpiredError)
 from app.services.mailer import send_verification_email
 
 logger = logging.getLogger(__name__)
@@ -105,7 +103,7 @@ class AuthService:
             logger.exception("Failed to send verification email to %s", user.email)
 
     async def _send_verification_email(self, email: str, token: str) -> None:
-        verify_url = f"{settings.frontend_url}/verify-email?token={token}"
+        verify_url = f"{settings.frontend_url}/#/verify-email?token={token}"
         await asyncio.to_thread(
             send_verification_email, to_email=email, verify_url=verify_url
         )
