@@ -9,10 +9,10 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.rate_limit import RATE_LIMIT_SEARCH, limiter
 from app.db import get_db
-from app.deps.cache import get_cache
+from app.deps.cache import get_cache_backend
 from app.repositories import CourseRepository
 from app.schemas import SearchResult, TrendingItem
-from app.services.cache import RedisCache
+from app.services.cache import CacheBackend
 from app.services.trending import TrendingService
 from app.utils import CurrentUser
 
@@ -26,7 +26,7 @@ async def search_courses(
     current_user: CurrentUser,
     q: Annotated[str, Query(min_length=2, max_length=100, description="Search query")],
     db: AsyncSession = Depends(get_db),
-    cache: RedisCache = Depends(get_cache),
+    cache: CacheBackend = Depends(get_cache_backend),
     limit: Annotated[int, Query(ge=1, le=50)] = 20,
 ) -> list[SearchResult]:
     """
@@ -44,7 +44,7 @@ async def search_courses(
 
 @router.get("/trending", response_model=list[TrendingItem])
 async def get_trending(
-    cache=Depends(get_cache),
+    cache: CacheBackend = Depends(get_cache_backend),
     limit: Annotated[int, Query(ge=1, le=20)] = 10,
 ) -> list[TrendingItem]:
     trending_service = TrendingService(cache)

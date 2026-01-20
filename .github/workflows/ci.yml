@@ -30,7 +30,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: knou_rate_course_test
+          POSTGRES_DB: knou_rate_course
         ports:
           - 5432:5432
         options: >-

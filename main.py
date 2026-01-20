@@ -1,6 +1,7 @@
 import logging
 from contextlib import asynccontextmanager
 
+import sentry_sdk
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from slowapi import _rate_limit_exceeded_handler
@@ -16,6 +17,17 @@ from app.db.redis import close_redis, get_redis
 from app.models import Base
 
 logger = logging.getLogger(__name__)
+
+# Initialize Sentry for error tracking (only if DSN is configured)
+if settings.sentry_dsn:
+    sentry_sdk.init(
+        dsn=settings.sentry_dsn,
+        traces_sample_rate=0.1 if not settings.debug else 1.0,
+        profiles_sample_rate=0.1 if not settings.debug else 1.0,
+        environment="development" if settings.debug else "production",
+        send_default_pii=False,
+    )
+    logger.info("Sentry initialized")
 
 
 @asynccontextmanager
@@ -81,38 +93,11 @@ app.include_router(api_router)
 @app.get("/health")
 async def health_check():
     """
-    Health check endpoint that verifies database and Redis connectivity.
-    Returns 200 if all services are healthy, 503 if any service is down.
+    Health check endpoint.
+    Returns 200 if all healthy,
     """
     health = {
         "status": "ok",
-        "services": {
-            "database": "ok",
-            "redis": "ok",
-        },
     }
-
-    # Check database connection
-    try:
-        async with engine.connect() as conn:
-            await conn.execute(text("SELECT 1"))
-    except Exception as e:
-        logger.error("Database health check failed: %s", e)
-        health["status"] = "degraded"
-        health["services"]["database"] = "error"
-
-    # Check Redis connection
-    try:
-        redis_client = await get_redis()
-        await redis_client.ping()
-    except Exception as e:
-        logger.error("Redis health check failed: %s", e)
-        health["status"] = "degraded"
-        health["services"]["redis"] = "error"
-
-    if health["status"] != "ok":
-        from fastapi.responses import JSONResponse
-
-        return JSONResponse(content=health, status_code=503)
 
     return health

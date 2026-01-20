@@ -18,7 +18,7 @@ class Settings(BaseSettings):
 
     database_url: str
 
-    redis_url: str
+    redis_url: str | None = None  # Optional - falls back to in-memory cache
 
     debug: bool = False
 
@@ -29,7 +29,9 @@ class Settings(BaseSettings):
     frontend_url: str
 
     sendgrid_api_key: str = ""  # Optional - emails won't send if not set
-    from_email: str = "no-reply@knouhoney.com"
+    from_email: str = ""
+
+    sentry_dsn: str = ""  # Optional - error tracking disabled if not set
 
     @field_validator("jwt_secret_key")
     @classmethod
