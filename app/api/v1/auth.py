@@ -14,6 +14,7 @@ from app.schemas import (
 )
 from app.services.auth.auth import AuthService
 from app.services.auth.errors import (
+    AccountDeletedError,
     AuthServiceError,
     EmailAlreadyExistsError,
     EmailNotVerifiedError,
@@ -44,6 +45,8 @@ async def signup(
         await auth_service.signup(str(data.email), data.password)
     except InvalidEmailDomainError as e:
         raise HTTPException(status_code=400, detail=str(e))
+    except AccountDeletedError as e:
+        raise HTTPException(status_code=403, detail=str(e))
     except EmailAlreadyExistsError as e:
         raise HTTPException(status_code=409, detail=str(e))
 
@@ -84,6 +87,8 @@ async def login(
         user = await auth_service.login(str(data.email), data.password)
     except InvalidCredentialsError as e:
         raise HTTPException(status_code=401, detail=str(e))
+    except AccountDeletedError as e:
+        raise HTTPException(status_code=403, detail=str(e))
     except EmailNotVerifiedError as e:
         raise HTTPException(status_code=403, detail=str(e))
 
@@ -115,3 +120,14 @@ async def resend_verification(
 @router.get("/me", response_model=UserResponse)
 async def get_me(current_user: CurrentUser) -> UserResponse:
     return UserResponse.model_validate(current_user)
+
+
+@router.delete("/me", response_model=MessageResponse)
+async def delete_account(
+    current_user: CurrentUser,
+    db: AsyncSession = Depends(get_db),
+) -> MessageResponse:
+    """Delete the current user's account (soft delete)."""
+    auth_service = AuthService(db)
+    await auth_service.delete_account(current_user)
+    return MessageResponse(message="Account deleted successfully.")

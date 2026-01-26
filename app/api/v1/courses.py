@@ -10,7 +10,7 @@ from app.repositories import CourseRepository
 from app.schemas import CourseDetailResponse, CourseEvalSummary, CourseListResponse
 from app.services import CourseService
 from app.services.cache import RedisCache
-from app.utils import CurrentUser
+from app.utils import CurrentUser, OptionalCurrentUser
 
 router = APIRouter()
 
@@ -23,7 +23,7 @@ class SortOption(str, Enum):
 
 @router.get("", response_model=list[CourseListResponse])
 async def get_courses(
-    current_user: CurrentUser,
+    current_user: OptionalCurrentUser,
     db: AsyncSession = Depends(get_db),
     cache: RedisCache = Depends(get_cache),
     major_id: Annotated[int | None, Query(description="Filter by major")] = None,
@@ -48,7 +48,7 @@ async def get_courses(
 @router.get("/{course_id}", response_model=CourseDetailResponse)
 async def get_course(
     course_id: int,
-    current_user: CurrentUser,
+    current_user: OptionalCurrentUser,
     db: AsyncSession = Depends(get_db),
     cache: RedisCache = Depends(get_cache),
 ) -> CourseDetailResponse:

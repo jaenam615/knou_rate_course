@@ -1,6 +1,8 @@
+from datetime import UTC, datetime, timedelta
+
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.constants import CacheTTL
+from app.constants import AuthConstants, CacheTTL
 from app.models import User
 from app.repositories import CourseRepository, ReviewRepository
 from app.schemas import (
@@ -13,6 +15,16 @@ from app.schemas import (
 from app.services.cache import RedisCache
 
 
+def _can_view_reviews(user: User | None) -> bool:
+    """Check if user can view reviews (3+ reviews OR within 3 days of signup)."""
+    if user is None:
+        return False
+    if user.review_count >= AuthConstants.REQUIRED_REVIEWS_FOR_FULL_ACCESS:
+        return True
+    grace_period = timedelta(days=AuthConstants.NEW_USER_GRACE_PERIOD_DAYS)
+    return datetime.now(UTC) < user.created_at + grace_period
+
+
 class CourseService:
     def __init__(self, db: AsyncSession, cache: RedisCache):
         self.course_repo = CourseRepository(db)
@@ -21,7 +33,7 @@ class CourseService:
 
     async def get_list(
         self,
-        user: User,
+        user: User | None = None,
         major_id: int | None = None,
         q: str | None = None,
         sort: str = "top_rated",
@@ -53,25 +65,11 @@ class CourseService:
             except Exception:
                 rows = await _load_course_list()
 
-        if user.has_full_access:
-            return [CourseListResponse(**row) for row in rows]
-
-        return [
-            CourseListResponse(
-                id=row["id"],
-                course_code=row["course_code"],
-                name=row["name"],
-                major_name=row["major_name"],
-                avg_rating=None,
-                avg_difficulty=None,
-                avg_workload=None,
-                review_count=row["review_count"],
-            )
-            for row in rows
-        ]
+        # Always show ratings publicly
+        return [CourseListResponse(**row) for row in rows]
 
     async def get_detail(
-        self, course_id: int, user: User
+        self, course_id: int, user: User | None = None
     ) -> CourseDetailResponse | None:
         data = await self.course_repo.get_detail_with_stats(course_id)
         if not data:
@@ -79,6 +77,7 @@ class CourseService:
 
         course = data["course"]
 
+        # Always show ratings publicly
         base_response = {
             "id": course.id,
             "course_code": course.course_code,
@@ -90,14 +89,15 @@ class CourseService:
                 department=course.major.department,
             ),
             "review_count": data["review_count"],
+            "avg_rating": data["avg_rating"],
+            "avg_difficulty": data["avg_difficulty"],
+            "avg_workload": data["avg_workload"],
         }
 
-        if not user.has_full_access:
+        # Only show reviews if user can view them (3+ reviews OR grace period)
+        if not _can_view_reviews(user):
             return CourseDetailResponse(
                 **base_response,
-                avg_rating=None,
-                avg_difficulty=None,
-                avg_workload=None,
                 reviews=[],
             )
 
@@ -121,8 +121,5 @@ class CourseService:
 
         return CourseDetailResponse(
             **base_response,
-            avg_rating=data["avg_rating"],
-            avg_difficulty=data["avg_difficulty"],
-            avg_workload=data["avg_workload"],
             reviews=reviews_data,
         )

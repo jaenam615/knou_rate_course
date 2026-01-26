@@ -28,3 +28,7 @@ class InvalidVerificationTokenError(AuthServiceError):
 
 class VerificationTokenExpiredError(AuthServiceError):
     pass
+
+
+class AccountDeletedError(AuthServiceError):
+    pass

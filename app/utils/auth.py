@@ -2,7 +2,7 @@ from datetime import UTC, datetime, timedelta
 from typing import Annotated
 
 import jwt
-from fastapi import Depends, HTTPException, status
+from fastapi import Depends, HTTPException, Request, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -12,6 +12,7 @@ from app.models import User
 from app.repositories import UserRepository
 
 security = HTTPBearer()
+optional_security = HTTPBearer(auto_error=False)
 
 
 def create_access_token(user_id: int) -> str:
@@ -69,6 +70,32 @@ async def get_current_user(
 
 
 CurrentUser = Annotated[User, Depends(get_current_user)]
+
+
+async def get_optional_current_user(
+    credentials: Annotated[HTTPAuthorizationCredentials | None, Depends(optional_security)],
+    db: Annotated[AsyncSession, Depends(get_db)],
+) -> User | None:
+    """Get current user if authenticated, otherwise return None."""
+    if credentials is None:
+        return None
+
+    token = credentials.credentials
+    user_id = decode_access_token(token)
+
+    if user_id is None:
+        return None
+
+    user_repo = UserRepository(db)
+    user = await user_repo.get_by_id(user_id)
+
+    if user is None or not user.is_verified:
+        return None
+
+    return user
+
+
+OptionalCurrentUser = Annotated[User | None, Depends(get_optional_current_user)]
 
 
 class InsufficientReviewsError(Exception):

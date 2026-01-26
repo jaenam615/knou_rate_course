@@ -9,7 +9,8 @@ from app.config import settings
 from app.constants import AuthConstants
 from app.models import User
 from app.repositories import UserRepository
-from app.services.auth.errors import (EmailAlreadyExistsError,
+from app.services.auth.errors import (AccountDeletedError,
+                                      EmailAlreadyExistsError,
                                       EmailNotVerifiedError,
                                       InvalidCredentialsError,
                                       InvalidEmailDomainError,
@@ -63,6 +64,8 @@ class AuthService:
 
         existing = await self.user_repo.get_by_email(email)
         if existing:
+            if existing.is_deleted:
+                raise AccountDeletedError("This account has been deleted and cannot be re-registered")
             raise EmailAlreadyExistsError("Email already registered")
 
         token = self._generate_verification_token()
@@ -134,6 +137,9 @@ class AuthService:
         if not user:
             raise InvalidCredentialsError("Invalid email or password")
 
+        if user.is_deleted:
+            raise AccountDeletedError("This account has been deleted")
+
         if not self._verify_password(password, user.password_hash):
             raise InvalidCredentialsError("Invalid email or password")
 
@@ -141,3 +147,11 @@ class AuthService:
             raise EmailNotVerifiedError("Email not verified. Please check your email.")
 
         return user
+
+    async def delete_account(self, user: User) -> None:
+        """Soft delete a user account."""
+        await self.user_repo.update(
+            user,
+            is_deleted=True,
+            deleted_at=datetime.now(UTC),
+        )

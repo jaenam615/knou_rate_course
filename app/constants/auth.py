@@ -14,3 +14,4 @@ class AuthConstants:
 
     # Access control
     REQUIRED_REVIEWS_FOR_FULL_ACCESS = 3
+    NEW_USER_GRACE_PERIOD_DAYS = 3
